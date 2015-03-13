@@ -1,0 +1,7 @@
+--- correctOutput/strings_and_comments.s12	2015-03-13 13:54:26.614466000 +0100
++++ testOutput/strings_and_comments.s12	2015-03-13 13:54:40.789540000 +0100
+@@ -1,4 +0,0 @@
+-Hello, world!
+-
+-Hello, "world"!
+-//Comment
