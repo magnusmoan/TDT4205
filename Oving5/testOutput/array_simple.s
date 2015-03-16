@@ -54,6 +54,7 @@ pusharg:
 	cmp	r5,#0
 	bne	pusharg
 noargs:
+	bl	_arrayTest
 #3 End PROGRAM
 	mov	sp, fp
 	pop	{fp}

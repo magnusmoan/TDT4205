@@ -1,8 +1,6 @@
---- correctOutput/function_simple.s12	2015-03-13 13:54:26.551466000 +0100
-+++ testOutput/function_simple.s	2015-03-16 15:08:50.326822000 +0100
-@@ -1,2 +1,64 @@
--5 
--5 5 
+--- correctOutput/variables.s12	2015-03-13 13:54:26.628465000 +0100
++++ testOutput/variables.s	2015-03-16 15:08:54.061838000 +0100
+@@ -0,0 +1,62 @@
 +.syntax unified
 +.cpu cortex-a15
 +.fpu vfpv3-d16
@@ -19,8 +17,6 @@
 +#0 Starting PROGRAM
 +#1 Starting FUNCTION (main) with depth 2
 +#2 Leaving FUNCTION (main) with depth 2
-+#3 Starting FUNCTION (func) with depth 2
-+#4 Leaving FUNCTION (func) with depth 2
 +debugprint:
 +	push {r0-r11, lr}
 +	movw	r0, #:lower16:.DEBUG
@@ -62,7 +58,7 @@
 +	bne	pusharg
 +noargs:
 +	bl	_main
-+#5 End PROGRAM
++#3 End PROGRAM
 +	mov	sp, fp
 +	pop	{fp}
 +	bl	exit

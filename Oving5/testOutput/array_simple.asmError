@@ -1,0 +1,3 @@
+/tmp/ccq5cCsq.o: In function `noargs':
+(.text+0x88): undefined reference to `_arrayTest'
+collect2: error: ld returned 1 exit status
