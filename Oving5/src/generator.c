@@ -117,7 +117,12 @@ void gen_PROGRAM ( node_t *root, int scopedepth)
 	
 
 	/* TODO: Insert a call to the first defined function here */
-        
+	char* firstFunction = root->children[0]->children[0]->label;
+	char* functionLabel = malloc(strlen(firstFunction)+1);
+	strcpy(functionLabel, "_");
+	strcat(functionLabel, firstFunction);
+
+        instruction_add(BL, functionLabel, NULL, 0, 0);
 
 	tracePrint("End PROGRAM\n");
 
