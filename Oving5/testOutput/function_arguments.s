@@ -31,55 +31,55 @@ _main:
 #9 Ending DECLARATION
 #10 Starting ASSIGNMENT_STATEMENT
 #11 Starting VARIABLE
-ERROR, LOAD format not correct
+	ldr	r5, [fp, #-4]
 	push	{r5}
 #12 End VARIABLE a, depth difference: 0, stack offset: -4
 #13 Starting CONSTANT
-	movw	r0, #:lower16:.STRING0
-	movt	r0, #:upper16:.STRING0
+	movw	r0, #:lower16:5
+	movt	r0, #:upper16:5
 	push	{r0}
 #14 End CONSTANT
 	pop	{r5}
-	str	r5, [(null), #4254667]
+	str	r5, [fp, #-4]
 #15 End ASSIGNMENT_STATEMENT
 #16 Starting ASSIGNMENT_STATEMENT
 #17 Starting VARIABLE
-ERROR, LOAD format not correct
+	ldr	r5, [fp, #-8]
 	push	{r5}
 #18 End VARIABLE b, depth difference: 0, stack offset: -8
 #19 Starting CONSTANT
-	movw	r0, #:lower16:.STRING0
-	movt	r0, #:upper16:.STRING0
+	movw	r0, #:lower16:6
+	movt	r0, #:upper16:6
 	push	{r0}
 #20 End CONSTANT
 	pop	{r5}
-	str	r5, [(null), #4254663]
+	str	r5, [fp, #-8]
 #21 End ASSIGNMENT_STATEMENT
 #22 Starting ASSIGNMENT_STATEMENT
 #23 Starting VARIABLE
-ERROR, LOAD format not correct
+	ldr	r5, [fp, #-12]
 	push	{r5}
 #24 End VARIABLE c, depth difference: 0, stack offset: -12
 #25 Starting CONSTANT
-	movw	r0, #:lower16:.STRING0
-	movt	r0, #:upper16:.STRING0
+	movw	r0, #:lower16:7
+	movt	r0, #:upper16:7
 	push	{r0}
 #26 End CONSTANT
 	pop	{r5}
-	str	r5, [(null), #4254659]
+	str	r5, [fp, #-12]
 #27 End ASSIGNMENT_STATEMENT
 #28 Starting ASSIGNMENT_STATEMENT
 #29 Starting VARIABLE
-ERROR, LOAD format not correct
+	ldr	r5, [fp, #-16]
 	push	{r5}
 #30 End VARIABLE d, depth difference: 0, stack offset: -16
 #31 Starting CONSTANT
-	movw	r0, #:lower16:.STRING0
-	movt	r0, #:upper16:.STRING0
+	movw	r0, #:lower16:8
+	movt	r0, #:upper16:8
 	push	{r0}
 #32 End CONSTANT
 	pop	{r5}
-	str	r5, [(null), #4254655]
+	str	r5, [fp, #-16]
 #33 End ASSIGNMENT_STATEMENT
 #34 Starting DECLARATION: adding space on stack
 	push	{r0}
@@ -89,29 +89,29 @@ ERROR, LOAD format not correct
 #37 Ending DECLARATION
 #38 Starting ASSIGNMENT_STATEMENT
 #39 Starting VARIABLE
-ERROR, LOAD format not correct
+	ldr	r5, [fp, #-20]
 	push	{r5}
 #40 End VARIABLE e, depth difference: 0, stack offset: -20
 #41 Starting EXPRESSION of type FUNC_CALL
 #42 Ending EXPRESSION of type FUNC_CALL
 	pop	{r5}
-	str	r5, [(null), #4254651]
+	str	r5, [fp, #-20]
 #43 End ASSIGNMENT_STATEMENT
 #44 Starting ASSIGNMENT_STATEMENT
 #45 Starting VARIABLE
-ERROR, LOAD format not correct
+	ldr	r5, [fp, #-24]
 	push	{r5}
 #46 End VARIABLE f, depth difference: 0, stack offset: -24
 #47 Starting EXPRESSION of type FUNC_CALL
 #48 Ending EXPRESSION of type FUNC_CALL
 	pop	{r5}
-	str	r5, [(null), #4254647]
+	str	r5, [fp, #-24]
 #49 End ASSIGNMENT_STATEMENT
 #50 Starting PRINT_STATEMENT
 	push	{r6}
 	pop	{r6}
 #51 Starting VARIABLE
-ERROR, LOAD format not correct
+	ldr	r5, [fp, #-20]
 	push	{r5}
 #52 End VARIABLE e, depth difference: 0, stack offset: -20
 	movw  r0, #:lower16:.INTEGER
@@ -119,7 +119,7 @@ ERROR, LOAD format not correct
 	pop	{r1}
 	bl	printf
 #53 Starting VARIABLE
-ERROR, LOAD format not correct
+	ldr	r5, [fp, #-24]
 	push	{r5}
 #54 End VARIABLE f, depth difference: 0, stack offset: -24
 	movw  r0, #:lower16:.INTEGER
@@ -152,7 +152,7 @@ _func1:
 	push	{r6}
 	pop	{r6}
 #65 Starting VARIABLE
-ERROR, LOAD format not correct
+	ldr	r5, [fp, #16]
 	push	{r5}
 #66 End VARIABLE x, depth difference: 0, stack offset: 16
 	movw  r0, #:lower16:.INTEGER
@@ -160,7 +160,7 @@ ERROR, LOAD format not correct
 	pop	{r1}
 	bl	printf
 #67 Starting VARIABLE
-ERROR, LOAD format not correct
+	ldr	r5, [fp, #12]
 	push	{r5}
 #68 End VARIABLE y, depth difference: 0, stack offset: 12
 	movw  r0, #:lower16:.INTEGER
@@ -168,7 +168,7 @@ ERROR, LOAD format not correct
 	pop	{r1}
 	bl	printf
 #69 Starting VARIABLE
-ERROR, LOAD format not correct
+	ldr	r5, [fp, #8]
 	push	{r5}
 #70 End VARIABLE z, depth difference: 0, stack offset: 8
 	movw  r0, #:lower16:.INTEGER
@@ -181,7 +181,7 @@ ERROR, LOAD format not correct
 #71 Ending PRINT_STATEMENT
 #72 Starting RETURN_STATEMENT
 #73 Starting VARIABLE
-ERROR, LOAD format not correct
+	ldr	r5, [fp, #8]
 	push	{r5}
 #74 End VARIABLE z, depth difference: 0, stack offset: 8
 	pop	{r0}
@@ -214,7 +214,7 @@ _func2:
 	push	{r6}
 	pop	{r6}
 #89 Starting VARIABLE
-ERROR, LOAD format not correct
+	ldr	r5, [fp, #24]
 	push	{r5}
 #90 End VARIABLE x, depth difference: 0, stack offset: 24
 	movw  r0, #:lower16:.INTEGER
@@ -222,7 +222,7 @@ ERROR, LOAD format not correct
 	pop	{r1}
 	bl	printf
 #91 Starting VARIABLE
-ERROR, LOAD format not correct
+	ldr	r5, [fp, #20]
 	push	{r5}
 #92 End VARIABLE y, depth difference: 0, stack offset: 20
 	movw  r0, #:lower16:.INTEGER
@@ -230,7 +230,7 @@ ERROR, LOAD format not correct
 	pop	{r1}
 	bl	printf
 #93 Starting VARIABLE
-ERROR, LOAD format not correct
+	ldr	r5, [fp, #16]
 	push	{r5}
 #94 End VARIABLE z, depth difference: 0, stack offset: 16
 	movw  r0, #:lower16:.INTEGER
@@ -238,7 +238,7 @@ ERROR, LOAD format not correct
 	pop	{r1}
 	bl	printf
 #95 Starting VARIABLE
-ERROR, LOAD format not correct
+	ldr	r5, [fp, #12]
 	push	{r5}
 #96 End VARIABLE w, depth difference: 0, stack offset: 12
 	movw  r0, #:lower16:.INTEGER
@@ -246,7 +246,7 @@ ERROR, LOAD format not correct
 	pop	{r1}
 	bl	printf
 #97 Starting VARIABLE
-ERROR, LOAD format not correct
+	ldr	r5, [fp, #8]
 	push	{r5}
 #98 End VARIABLE ae, depth difference: 0, stack offset: 8
 	movw  r0, #:lower16:.INTEGER
@@ -259,7 +259,7 @@ ERROR, LOAD format not correct
 #99 Ending PRINT_STATEMENT
 #100 Starting RETURN_STATEMENT
 #101 Starting VARIABLE
-ERROR, LOAD format not correct
+	ldr	r5, [fp, #16]
 	push	{r5}
 #102 End VARIABLE z, depth difference: 0, stack offset: 16
 	pop	{r0}

@@ -1,5 +1,0 @@
-/tmp/ccWJf0Qf.o: In function `_minimal':
-(.text+0xc): undefined reference to `.STRING0'
-/tmp/ccWJf0Qf.o: In function `_minimal':
-(.text+0x10): undefined reference to `.STRING0'
-collect2: error: ld returned 1 exit status

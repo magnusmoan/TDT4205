@@ -19,8 +19,8 @@ _minimal:
 	mov	fp, sp
 #2 Starting RETURN_STATEMENT
 #3 Starting CONSTANT
-	movw	r0, #:lower16:.STRING0
-	movt	r0, #:upper16:.STRING0
+	movw	r0, #:lower16:0
+	movt	r0, #:upper16:0
 	push	{r0}
 #4 End CONSTANT
 	pop	{r0}

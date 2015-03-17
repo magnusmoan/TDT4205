@@ -25,32 +25,32 @@ _main:
 #5 Ending DECLARATION
 #6 Starting ASSIGNMENT_STATEMENT
 #7 Starting VARIABLE
-ERROR, LOAD format not correct
+	ldr	r5, [fp, #-4]
 	push	{r5}
 #8 End VARIABLE a, depth difference: 0, stack offset: -4
 #9 Starting CONSTANT
-	movw	r0, #:lower16:.STRING0
-	movt	r0, #:upper16:.STRING0
+	movw	r0, #:lower16:5
+	movt	r0, #:upper16:5
 	push	{r0}
 #10 End CONSTANT
 	pop	{r5}
-	str	r5, [(null), #4254667]
+	str	r5, [fp, #-4]
 #11 End ASSIGNMENT_STATEMENT
 #12 Starting ASSIGNMENT_STATEMENT
 #13 Starting VARIABLE
-ERROR, LOAD format not correct
+	ldr	r5, [fp, #-8]
 	push	{r5}
 #14 End VARIABLE b, depth difference: 0, stack offset: -8
 #15 Starting EXPRESSION of type FUNC_CALL
 #16 Ending EXPRESSION of type FUNC_CALL
 	pop	{r5}
-	str	r5, [(null), #4254663]
+	str	r5, [fp, #-8]
 #17 End ASSIGNMENT_STATEMENT
 #18 Starting PRINT_STATEMENT
 	push	{r6}
 	pop	{r6}
 #19 Starting VARIABLE
-ERROR, LOAD format not correct
+	ldr	r5, [fp, #-4]
 	push	{r5}
 #20 End VARIABLE a, depth difference: 0, stack offset: -4
 	movw  r0, #:lower16:.INTEGER
@@ -58,7 +58,7 @@ ERROR, LOAD format not correct
 	pop	{r1}
 	bl	printf
 #21 Starting VARIABLE
-ERROR, LOAD format not correct
+	ldr	r5, [fp, #-8]
 	push	{r5}
 #22 End VARIABLE b, depth difference: 0, stack offset: -8
 	movw  r0, #:lower16:.INTEGER
@@ -85,7 +85,7 @@ _func:
 	push	{r6}
 	pop	{r6}
 #29 Starting VARIABLE
-ERROR, LOAD format not correct
+	ldr	r5, [fp, #8]
 	push	{r5}
 #30 End VARIABLE x, depth difference: 0, stack offset: 8
 	movw  r0, #:lower16:.INTEGER
@@ -98,7 +98,7 @@ ERROR, LOAD format not correct
 #31 Ending PRINT_STATEMENT
 #32 Starting RETURN_STATEMENT
 #33 Starting VARIABLE
-ERROR, LOAD format not correct
+	ldr	r5, [fp, #8]
 	push	{r5}
 #34 End VARIABLE x, depth difference: 0, stack offset: 8
 	pop	{r0}
