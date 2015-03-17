@@ -32,9 +32,9 @@ _main:
 	push	{r5}
 #10 End VARIABLE a, depth difference: 0, stack offset: -4
 #11 Starting CONSTANT
-	movw	r0, #:lower16:10
-	movt	r0, #:upper16:10
-	push	{r0}
+	movw	r5, #:lower16:10
+	movt	r5, #:upper16:10
+	push	{r5}
 #12 End CONSTANT
 	pop	{r5}
 	str	r5, [fp, #-4]
@@ -45,8 +45,8 @@ _main:
 	push	{r5}
 #16 End VARIABLE b, depth difference: 0, stack offset: -8
 #17 Starting CONSTANT
-	mov	r0, #1
-	push	{r0}
+	mov	r5, #1
+	push	{r5}
 #18 End CONSTANT
 	pop	{r5}
 	str	r5, [fp, #-8]
@@ -57,7 +57,7 @@ _main:
 	push	{r5}
 #22 End VARIABLE c, depth difference: 0, stack offset: -12
 #23 Starting CONSTANT
-	push	{r0}
+	push	{r5}
 #24 End CONSTANT
 	pop	{r5}
 	str	r5, [fp, #-12]

@@ -25,9 +25,9 @@ _main:
 	push	{r6}
 	pop	{r6}
 #3 Starting CONSTANT
-	movw	r0, #:lower16:.STRING0
-	movt	r0, #:upper16:.STRING0
-	push	{r0}
+	movw	r5, #:lower16:.STRING0
+	movt	r5, #:upper16:.STRING0
+	push	{r5}
 #4 End CONSTANT
 	pop	{r0}
 	bl	printf
@@ -36,6 +36,7 @@ _main:
 	bl	putchar
 #5 Ending PRINT_STATEMENT
 #6 Starting EXPRESSION of type FUNC_CALL
+	bl	_function
 #7 Ending EXPRESSION of type FUNC_CALL
 	mov	sp, fp
 	pop	{fp}
@@ -50,9 +51,9 @@ _function:
 	push	{r6}
 	pop	{r6}
 #11 Starting CONSTANT
-	movw	r0, #:lower16:.STRING1
-	movt	r0, #:upper16:.STRING1
-	push	{r0}
+	movw	r5, #:lower16:.STRING1
+	movt	r5, #:upper16:.STRING1
+	push	{r5}
 #12 End CONSTANT
 	pop	{r0}
 	bl	printf

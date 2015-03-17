@@ -29,9 +29,9 @@ _main:
 	push	{r5}
 #8 End VARIABLE a, depth difference: 0, stack offset: -4
 #9 Starting CONSTANT
-	movw	r0, #:lower16:5
-	movt	r0, #:upper16:5
-	push	{r0}
+	movw	r5, #:lower16:5
+	movt	r5, #:upper16:5
+	push	{r5}
 #10 End CONSTANT
 	pop	{r5}
 	str	r5, [fp, #-4]
@@ -42,6 +42,7 @@ _main:
 	push	{r5}
 #14 End VARIABLE b, depth difference: 0, stack offset: -8
 #15 Starting EXPRESSION of type FUNC_CALL
+	bl	_func
 #16 Ending EXPRESSION of type FUNC_CALL
 	pop	{r5}
 	str	r5, [fp, #-8]

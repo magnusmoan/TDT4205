@@ -23,9 +23,9 @@ _hello:
 	push	{r6}
 	pop	{r6}
 #3 Starting CONSTANT
-	movw	r0, #:lower16:.STRING0
-	movt	r0, #:upper16:.STRING0
-	push	{r0}
+	movw	r5, #:lower16:.STRING0
+	movt	r5, #:upper16:.STRING0
+	push	{r5}
 #4 End CONSTANT
 	pop	{r0}
 	bl	printf
