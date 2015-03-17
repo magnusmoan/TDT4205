@@ -207,15 +207,17 @@ void gen_CONSTANT (node_t * root, int scopedepth)
 		case BOOL_TYPE:
 			{
 			if(root->bool_const == true){
-				instruction_add(MOVE32, r0, 1, 0, 0);
+				instruction_add(MOV, r0, STRDUP("#1"), 0, 0);
 				break;
 			}
-			instruction_add(MOVE32, r0, 0, 0, 0);
+			instruction_add(MOV, r0, STRDUP("#0"), 0, 0);
 			}
 			break;
 		case INT_TYPE:
 			{
-			instruction_add(MOVE32, r0, root->int_const, 0, 0);
+			char* string[20];
+			sprintf(string, "%d", root->int_const);
+			instruction_add(MOVE32, r0, STRDUP(string), 0, 0);
 			}
 			break;
 	}
