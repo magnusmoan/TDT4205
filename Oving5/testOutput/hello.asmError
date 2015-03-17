@@ -1,3 +1,0 @@
-/tmp/ccEodYlP.o: In function `noargs':
-(.text+0x88): undefined reference to `_hello'
-collect2: error: ld returned 1 exit status
