@@ -197,6 +197,8 @@ void gen_EXPRESSION ( node_t *root, int scopedepth )
 			break;
 		case NEW_E:
 			{
+				instruction_add(
+				instruction_add(BL, "_malloc", NULL, 0, 0);
 			}
 			break;
 		case ARRAY_INDEX_E:
