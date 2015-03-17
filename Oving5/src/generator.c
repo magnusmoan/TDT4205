@@ -198,6 +198,7 @@ void gen_CONSTANT (node_t * root, int scopedepth)
 	char* string[20];
 	sprintf(string, ".STRING%d", root->string_index);
 	instruction_add(MOVE32, r0, STRDUP(string), 0, 0);
+	instruction_add(PUSH, r0, NULL, 0, 0);
 
 	tracePrint("End CONSTANT\n");
 }
