@@ -139,8 +139,16 @@ void gen_FUNCTION ( node_t *root, int scopedepth )
 {
     scopedepth++;
     tracePrint ( "Starting FUNCTION (%s) with depth %d\n", root->label, scopedepth);
-    
-    
+    instruction_add(LABEL, STRDUP(root->label), NULL, 0, 0);
+    instruction_add(PUSH, lr, NULL, 0, 0);
+    instruction_add(PUSH, fp, NULL, 0, 0);
+    instruction_add(MOV, fp, sp, 0, 0);
+
+    gen_default(root, scopedepth);
+
+    instruction_add(MOV, sp, fp, 0, 0);
+    instruction_add(POP, fp, 0, 0);
+    instruction_add(POP, lr, 0, 0);
     
     tracePrint ("Leaving FUNCTION (%s) with depth %d\n", root->label, scopedepth);
     scopedepth--;      
@@ -155,6 +163,7 @@ void gen_DECLARATION_STATEMENT (node_t *root, int scopedepth)
 {
 	tracePrint("Starting DECLARATION: adding space on stack\n");
 
+	instruction_add(PUSH, r0, NULL, 0, 0);
 
 	tracePrint("Ending DECLARATION\n");
 }
@@ -191,6 +200,7 @@ void gen_CONSTANT (node_t * root, int scopedepth)
 void gen_ASSIGNMENT_STATEMENT ( node_t *root, int scopedepth )
 {
 	 tracePrint ( "Starting ASSIGNMENT_STATEMENT\n");
+
 
 
 	tracePrint ( "End ASSIGNMENT_STATEMENT\n");
