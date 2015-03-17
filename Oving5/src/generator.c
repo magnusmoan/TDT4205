@@ -183,6 +183,9 @@ void gen_VARIABLE ( node_t *root, int scopedepth )
 
 	tracePrint ( "Starting VARIABLE\n");
 
+	int offset = root->entry->stack_offset;
+	instruction_add(LDR, r5, NULL, fp+offset, 0);
+	instruction_add(PUSH, r5, NULL, 0, 0);
 
 	tracePrint ( "End VARIABLE %s, depth difference: %d, stack offset: %d\n", root->label, 0, root->entry->stack_offset);
 }
@@ -192,6 +195,7 @@ void gen_CONSTANT (node_t * root, int scopedepth)
 {
 	tracePrint("Starting CONSTANT\n");
 
+	instruction_add(MOVE32, r0, .STRING0, 0, 0);
 
 	tracePrint("End CONSTANT\n");
 }
@@ -199,9 +203,14 @@ void gen_CONSTANT (node_t * root, int scopedepth)
 
 void gen_ASSIGNMENT_STATEMENT ( node_t *root, int scopedepth )
 {
-	 tracePrint ( "Starting ASSIGNMENT_STATEMENT\n");
+	tracePrint ( "Starting ASSIGNMENT_STATEMENT\n");
 
+	gen_default(root, scopedepth);
 
+	int offset = root->children[0]->entry->stack_offset;
+
+	instruction_add(POP, r5, NULL, 0, 0);
+	instruction_add(STR, r5, NULL, 0, fp+offset);
 
 	tracePrint ( "End ASSIGNMENT_STATEMENT\n");
 }
@@ -210,6 +219,9 @@ void gen_ASSIGNMENT_STATEMENT ( node_t *root, int scopedepth )
 void gen_RETURN_STATEMENT ( node_t *root, int scopedepth )
 {
 	tracePrint ( "Starting RETURN_STATEMENT\n");
+
+	gen_default(root, scopedepth);
+	instruction_add(POP, r0, NULL, 0, 0);
 	
 	tracePrint ( "End RETURN_STATEMENT\n");
 }
