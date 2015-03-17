@@ -1,5 +1,5 @@
 --- correctOutput/minimal.s12	2015-03-13 13:54:26.587465000 +0100
-+++ testOutput/minimal.s	2015-03-17 18:08:29.300620000 +0100
++++ testOutput/minimal.s	2015-03-17 18:15:17.319738000 +0100
 @@ -0,0 +1,77 @@
 +.syntax unified
 +.cpu cortex-a15
@@ -30,7 +30,7 @@
 +#5 End RETURN_STATEMENT
 +	mov	sp, fp
 +	pop	{fp}
-+	pop	{lr}
++	pop	{pc}
 +#6 Leaving FUNCTION (minimal) with depth 2
 +debugprint:
 +	push {r0-r11, lr}

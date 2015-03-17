@@ -35,7 +35,7 @@ _hello:
 #5 Ending PRINT_STATEMENT
 	mov	sp, fp
 	pop	{fp}
-	pop	{lr}
+	pop	{pc}
 #6 Leaving FUNCTION (hello) with depth 2
 debugprint:
 	push {r0-r11, lr}

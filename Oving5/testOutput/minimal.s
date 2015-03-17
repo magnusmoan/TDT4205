@@ -27,7 +27,7 @@ _minimal:
 #5 End RETURN_STATEMENT
 	mov	sp, fp
 	pop	{fp}
-	pop	{lr}
+	pop	{pc}
 #6 Leaving FUNCTION (minimal) with depth 2
 debugprint:
 	push {r0-r11, lr}

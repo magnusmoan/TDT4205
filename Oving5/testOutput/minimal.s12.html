@@ -16,7 +16,7 @@
 <body>
 <pre>
 <span class="comment"><span class="minus3">--- correctOutput/minimal.s12	2015-03-13 13:54:26.587465000 +0100</span>
-<span class="plus3">+++ testOutput/minimal.s	2015-03-17 18:08:29.300620000 +0100</span>
+<span class="plus3">+++ testOutput/minimal.s	2015-03-17 18:15:17.319738000 +0100</span>
 <span class="at2">@@ -0,0 +1,77 @@</span>
 <span class="plus">+.syntax unified</span>
 <span class="plus">+.cpu cortex-a15</span>
@@ -47,7 +47,7 @@
 <span class="plus">+#5 End RETURN_STATEMENT</span>
 <span class="plus">+	mov	sp, fp</span>
 <span class="plus">+	pop	{fp}</span>
-<span class="plus">+	pop	{lr}</span>
+<span class="plus">+	pop	{pc}</span>
 <span class="plus">+#6 Leaving FUNCTION (minimal) with depth 2</span>
 <span class="plus">+debugprint:</span>
 <span class="plus">+	push {r0-r11, lr}</span>

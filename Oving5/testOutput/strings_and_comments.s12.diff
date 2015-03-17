@@ -1,7 +1,0 @@
---- correctOutput/strings_and_comments.s12	2015-03-13 13:54:26.614466000 +0100
-+++ testOutput/strings_and_comments.s12	2015-03-17 18:08:30.576626000 +0100
-@@ -2,3 +2,4 @@
- 
- Hello, "world"!
- //Comment
-+Hit Debug

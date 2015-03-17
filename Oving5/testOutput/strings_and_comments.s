@@ -83,7 +83,7 @@ _main:
 #17 Ending PRINT_STATEMENT
 	mov	sp, fp
 	pop	{fp}
-	pop	{lr}
+	pop	{pc}
 #18 Leaving FUNCTION (main) with depth 2
 debugprint:
 	push {r0-r11, lr}

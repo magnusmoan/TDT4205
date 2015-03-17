@@ -67,7 +67,7 @@ ERROR, LOAD format not correct
 #25 End ASSIGNMENT_STATEMENT
 	mov	sp, fp
 	pop	{fp}
-	pop	{lr}
+	pop	{pc}
 #26 Leaving FUNCTION (main) with depth 2
 debugprint:
 	push {r0-r11, lr}

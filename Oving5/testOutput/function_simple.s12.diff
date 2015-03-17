@@ -1,5 +1,5 @@
 --- correctOutput/function_simple.s12	2015-03-13 13:54:26.551466000 +0100
-+++ testOutput/function_simple.s	2015-03-17 18:08:27.548611000 +0100
++++ testOutput/function_simple.s	2015-03-17 18:15:15.711729000 +0100
 @@ -1,2 +1,155 @@
 -5 
 -5 5 
@@ -76,7 +76,7 @@
 +#23 Ending PRINT_STATEMENT
 +	mov	sp, fp
 +	pop	{fp}
-+	pop	{lr}
++	pop	{pc}
 +#24 Leaving FUNCTION (main) with depth 2
 +#25 Starting FUNCTION (func) with depth 2
 +_func:
@@ -110,7 +110,7 @@
 +#35 End RETURN_STATEMENT
 +	mov	sp, fp
 +	pop	{fp}
-+	pop	{lr}
++	pop	{pc}
 +#36 Leaving FUNCTION (func) with depth 2
 +debugprint:
 +	push {r0-r11, lr}

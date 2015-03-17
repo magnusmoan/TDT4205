@@ -1,5 +1,5 @@
 --- correctOutput/variables.s12	2015-03-13 13:54:26.628465000 +0100
-+++ testOutput/variables.s	2015-03-17 18:08:30.879631000 +0100
++++ testOutput/variables.s	2015-03-17 18:15:18.834745000 +0100
 @@ -0,0 +1,117 @@
 +.syntax unified
 +.cpu cortex-a15
@@ -70,7 +70,7 @@
 +#25 End ASSIGNMENT_STATEMENT
 +	mov	sp, fp
 +	pop	{fp}
-+	pop	{lr}
++	pop	{pc}
 +#26 Leaving FUNCTION (main) with depth 2
 +debugprint:
 +	push {r0-r11, lr}

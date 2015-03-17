@@ -71,7 +71,7 @@ ERROR, LOAD format not correct
 #23 Ending PRINT_STATEMENT
 	mov	sp, fp
 	pop	{fp}
-	pop	{lr}
+	pop	{pc}
 #24 Leaving FUNCTION (main) with depth 2
 #25 Starting FUNCTION (func) with depth 2
 _func:
@@ -105,7 +105,7 @@ ERROR, LOAD format not correct
 #35 End RETURN_STATEMENT
 	mov	sp, fp
 	pop	{fp}
-	pop	{lr}
+	pop	{pc}
 #36 Leaving FUNCTION (func) with depth 2
 debugprint:
 	push {r0-r11, lr}

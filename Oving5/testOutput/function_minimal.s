@@ -39,7 +39,7 @@ _main:
 #7 Ending EXPRESSION of type FUNC_CALL
 	mov	sp, fp
 	pop	{fp}
-	pop	{lr}
+	pop	{pc}
 #8 Leaving FUNCTION (main) with depth 2
 #9 Starting FUNCTION (function) with depth 2
 _function:
@@ -62,7 +62,7 @@ _function:
 #13 Ending PRINT_STATEMENT
 	mov	sp, fp
 	pop	{fp}
-	pop	{lr}
+	pop	{pc}
 #14 Leaving FUNCTION (function) with depth 2
 debugprint:
 	push {r0-r11, lr}

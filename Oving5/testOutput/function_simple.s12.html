@@ -16,7 +16,7 @@
 <body>
 <pre>
 <span class="comment"><span class="minus3">--- correctOutput/function_simple.s12	2015-03-13 13:54:26.551466000 +0100</span>
-<span class="plus3">+++ testOutput/function_simple.s	2015-03-17 18:08:27.548611000 +0100</span>
+<span class="plus3">+++ testOutput/function_simple.s	2015-03-17 18:15:15.711729000 +0100</span>
 <span class="at2">@@ -1,2 +1,155 @@</span>
 <span class="minus">-5 </span>
 <span class="minus">-5 5 </span>
@@ -93,7 +93,7 @@
 <span class="plus">+#23 Ending PRINT_STATEMENT</span>
 <span class="plus">+	mov	sp, fp</span>
 <span class="plus">+	pop	{fp}</span>
-<span class="plus">+	pop	{lr}</span>
+<span class="plus">+	pop	{pc}</span>
 <span class="plus">+#24 Leaving FUNCTION (main) with depth 2</span>
 <span class="plus">+#25 Starting FUNCTION (func) with depth 2</span>
 <span class="plus">+_func:</span>
@@ -127,7 +127,7 @@
 <span class="plus">+#35 End RETURN_STATEMENT</span>
 <span class="plus">+	mov	sp, fp</span>
 <span class="plus">+	pop	{fp}</span>
-<span class="plus">+	pop	{lr}</span>
+<span class="plus">+	pop	{pc}</span>
 <span class="plus">+#36 Leaving FUNCTION (func) with depth 2</span>
 <span class="plus">+debugprint:</span>
 <span class="plus">+	push {r0-r11, lr}</span>
