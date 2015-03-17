@@ -173,6 +173,35 @@ void gen_EXPRESSION ( node_t *root, int scopedepth )
 {
 	tracePrint ( "Starting EXPRESSION of type %s\n", (char*) root->expression_type.text);
 
+	et_number expression = root->expression_type.index;
+
+	switch(expression){
+		case FUNC_CALL_E:
+			{
+				node_t* parameters = root->children[0];
+				for(int i = 0; i < parameters->n_children; i++){
+					int offset = parameters[i]->entry->stack_offset;
+					instruction_add(LDR, r5, fp, 0, offset);
+					instruction_add(PUSH, r5, NULL, 0, 0);
+				}
+
+				char* function = root->label;
+				char* functionLabel = malloc(strlen(function)+1);
+				strcpy(functionLabel, "_");
+				strcat(functionLabel, function);
+				instruction_add(BL, functionLabel, NULL, 0, 0);
+
+			}
+			break;
+		case NEW_E:
+			{
+			}
+			break;
+		case ARRAY_INDEX_E:
+			{
+			}
+			break;
+	}
 
 	tracePrint ( "Ending EXPRESSION of type %s\n", (char*) root->expression_type.text);
 }
@@ -201,27 +230,27 @@ void gen_CONSTANT (node_t * root, int scopedepth)
 			{
 			char* string[20];
 			sprintf(string, ".STRING%d", root->string_index);
-			instruction_add(MOVE32, r0, STRDUP(string), 0, 0);
+			instruction_add(MOVE32, r5, STRDUP(string), 0, 0);
 			}
 			break;
 		case BOOL_TYPE:
 			{
 			if(root->bool_const == true){
-				instruction_add(MOV, r0, STRDUP("#1"), 0, 0);
+				instruction_add(MOV, r5, STRDUP("#1"), 0, 0);
 				break;
 			}
-			instruction_add(MOV, r0, STRDUP("#0"), 0, 0);
+			instruction_add(MOV, r5, STRDUP("#0"), 0, 0);
 			}
 			break;
 		case INT_TYPE:
 			{
 			char* string[20];
 			sprintf(string, "%d", root->int_const);
-			instruction_add(MOVE32, r0, STRDUP(string), 0, 0);
+			instruction_add(MOVE32, r5, STRDUP(string), 0, 0);
 			}
 			break;
 	}
-	instruction_add(PUSH, r0, NULL, 0, 0);
+	instruction_add(PUSH, r5, NULL, 0, 0);
 
 	tracePrint("End CONSTANT\n");
 }
