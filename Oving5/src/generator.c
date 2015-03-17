@@ -184,7 +184,7 @@ void gen_VARIABLE ( node_t *root, int scopedepth )
 	tracePrint ( "Starting VARIABLE\n");
 
 	int offset = root->entry->stack_offset;
-	instruction_add(LDR, r5, NULL, 0, fp+offset);
+	instruction_add(LDR, r5, fp, 0, offset);
 	instruction_add(PUSH, r5, NULL, 0, 0);
 
 	tracePrint ( "End VARIABLE %s, depth difference: %d, stack offset: %d\n", root->label, 0, root->entry->stack_offset);
@@ -228,7 +228,7 @@ void gen_ASSIGNMENT_STATEMENT ( node_t *root, int scopedepth )
 	int offset = root->children[0]->entry->stack_offset;
 
 	instruction_add(POP, r5, NULL, 0, 0);
-	instruction_add(STR, r5, NULL, 0, fp+offset);
+	instruction_add(STR, r5, fp, 0, offset);
 
 	tracePrint ( "End ASSIGNMENT_STATEMENT\n");
 }
