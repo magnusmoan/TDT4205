@@ -185,7 +185,7 @@ void gen_EXPRESSION ( node_t *root, int scopedepth )
 					instruction_add(PUSH, r5, NULL, 0, 0);
 				}
 
-				char* function = root->label;
+				char* function = root->function_entry->label;
 				char* functionLabel = malloc(strlen(function)+1);
 				strcpy(functionLabel, "_");
 				strcat(functionLabel, function);
