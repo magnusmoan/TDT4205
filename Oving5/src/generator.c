@@ -148,7 +148,7 @@ void gen_FUNCTION ( node_t *root, int scopedepth )
 
     instruction_add(MOV, sp, fp, 0, 0);
     instruction_add(POP, fp, NULL,  0, 0);
-    instruction_add(POP, lr, NULL, 0, 0);
+    instruction_add(POP, pc, NULL, 0, 0);
     
     tracePrint ("Leaving FUNCTION (%s) with depth %d\n", root->label, scopedepth);
     scopedepth--;      
