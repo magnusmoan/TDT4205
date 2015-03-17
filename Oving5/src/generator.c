@@ -195,7 +195,7 @@ void gen_CONSTANT (node_t * root, int scopedepth)
 {
 	tracePrint("Starting CONSTANT\n");
 
-	base_data_type_t type = root->entry->type.base_type;
+	base_data_type_t type = root->data_type->base_type;
 	switch(type){
 		case STRING_TYPE:
 			{
