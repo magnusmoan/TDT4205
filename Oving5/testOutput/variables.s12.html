@@ -16,8 +16,8 @@
 <body>
 <pre>
 <span class="comment"><span class="minus3">--- correctOutput/variables.s12	2015-03-13 13:54:26.628465000 +0100</span>
-<span class="plus3">+++ testOutput/variables.s	2015-03-17 17:50:08.409914000 +0100</span>
-<span class="at2">@@ -0,0 +1,114 @@</span>
+<span class="plus3">+++ testOutput/variables.s	2015-03-17 18:08:30.879631000 +0100</span>
+<span class="at2">@@ -0,0 +1,117 @@</span>
 <span class="plus">+.syntax unified</span>
 <span class="plus">+.cpu cortex-a15</span>
 <span class="plus">+.fpu vfpv3-d16</span>
@@ -54,9 +54,10 @@
 <span class="plus">+#11 Starting CONSTANT</span>
 <span class="plus">+	movw	r0, #:lower16:.STRING0</span>
 <span class="plus">+	movt	r0, #:upper16:.STRING0</span>
+<span class="plus">+	push	{r0}</span>
 <span class="plus">+#12 End CONSTANT</span>
 <span class="plus">+	pop	{r5}</span>
-<span class="plus">+	str	r5, [(null), #4254603]</span>
+<span class="plus">+	str	r5, [(null), #4254667]</span>
 <span class="plus">+#13 End ASSIGNMENT_STATEMENT</span>
 <span class="plus">+#14 Starting ASSIGNMENT_STATEMENT</span>
 <span class="plus">+#15 Starting VARIABLE</span>
@@ -66,9 +67,10 @@
 <span class="plus">+#17 Starting CONSTANT</span>
 <span class="plus">+	movw	r0, #:lower16:.STRING0</span>
 <span class="plus">+	movt	r0, #:upper16:.STRING0</span>
+<span class="plus">+	push	{r0}</span>
 <span class="plus">+#18 End CONSTANT</span>
 <span class="plus">+	pop	{r5}</span>
-<span class="plus">+	str	r5, [(null), #4254599]</span>
+<span class="plus">+	str	r5, [(null), #4254663]</span>
 <span class="plus">+#19 End ASSIGNMENT_STATEMENT</span>
 <span class="plus">+#20 Starting ASSIGNMENT_STATEMENT</span>
 <span class="plus">+#21 Starting VARIABLE</span>
@@ -78,9 +80,10 @@
 <span class="plus">+#23 Starting CONSTANT</span>
 <span class="plus">+	movw	r0, #:lower16:.STRING0</span>
 <span class="plus">+	movt	r0, #:upper16:.STRING0</span>
+<span class="plus">+	push	{r0}</span>
 <span class="plus">+#24 End CONSTANT</span>
 <span class="plus">+	pop	{r5}</span>
-<span class="plus">+	str	r5, [(null), #4254595]</span>
+<span class="plus">+	str	r5, [(null), #4254659]</span>
 <span class="plus">+#25 End ASSIGNMENT_STATEMENT</span>
 <span class="plus">+	mov	sp, fp</span>
 <span class="plus">+	pop	{fp}</span>

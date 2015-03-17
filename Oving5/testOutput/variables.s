@@ -34,9 +34,10 @@ ERROR, LOAD format not correct
 #11 Starting CONSTANT
 	movw	r0, #:lower16:.STRING0
 	movt	r0, #:upper16:.STRING0
+	push	{r0}
 #12 End CONSTANT
 	pop	{r5}
-	str	r5, [(null), #4254603]
+	str	r5, [(null), #4254667]
 #13 End ASSIGNMENT_STATEMENT
 #14 Starting ASSIGNMENT_STATEMENT
 #15 Starting VARIABLE
@@ -46,9 +47,10 @@ ERROR, LOAD format not correct
 #17 Starting CONSTANT
 	movw	r0, #:lower16:.STRING0
 	movt	r0, #:upper16:.STRING0
+	push	{r0}
 #18 End CONSTANT
 	pop	{r5}
-	str	r5, [(null), #4254599]
+	str	r5, [(null), #4254663]
 #19 End ASSIGNMENT_STATEMENT
 #20 Starting ASSIGNMENT_STATEMENT
 #21 Starting VARIABLE
@@ -58,9 +60,10 @@ ERROR, LOAD format not correct
 #23 Starting CONSTANT
 	movw	r0, #:lower16:.STRING0
 	movt	r0, #:upper16:.STRING0
+	push	{r0}
 #24 End CONSTANT
 	pop	{r5}
-	str	r5, [(null), #4254595]
+	str	r5, [(null), #4254659]
 #25 End ASSIGNMENT_STATEMENT
 	mov	sp, fp
 	pop	{fp}

@@ -27,6 +27,7 @@ _main:
 #3 Starting CONSTANT
 	movw	r0, #:lower16:.STRING0
 	movt	r0, #:upper16:.STRING0
+	push	{r0}
 #4 End CONSTANT
 	pop	{r0}
 	bl	printf
@@ -51,6 +52,7 @@ _function:
 #11 Starting CONSTANT
 	movw	r0, #:lower16:.STRING1
 	movt	r0, #:upper16:.STRING1
+	push	{r0}
 #12 End CONSTANT
 	pop	{r0}
 	bl	printf

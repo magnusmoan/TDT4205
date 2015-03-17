@@ -1,7 +1,7 @@
 testOutput/variables.s: Assembler messages:
 testOutput/variables.s:31: Error: bad instruction `error, LOAD format not correct'
-testOutput/variables.s:39: Error: ARM register expected -- `str r5,[(null),#4254603]'
-testOutput/variables.s:43: Error: bad instruction `error, LOAD format not correct'
-testOutput/variables.s:51: Error: ARM register expected -- `str r5,[(null),#4254599]'
-testOutput/variables.s:55: Error: bad instruction `error, LOAD format not correct'
-testOutput/variables.s:63: Error: ARM register expected -- `str r5,[(null),#4254595]'
+testOutput/variables.s:40: Error: ARM register expected -- `str r5,[(null),#4254667]'
+testOutput/variables.s:44: Error: bad instruction `error, LOAD format not correct'
+testOutput/variables.s:53: Error: ARM register expected -- `str r5,[(null),#4254663]'
+testOutput/variables.s:57: Error: bad instruction `error, LOAD format not correct'
+testOutput/variables.s:66: Error: ARM register expected -- `str r5,[(null),#4254659]'

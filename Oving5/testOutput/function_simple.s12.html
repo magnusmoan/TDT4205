@@ -16,8 +16,8 @@
 <body>
 <pre>
 <span class="comment"><span class="minus3">--- correctOutput/function_simple.s12	2015-03-13 13:54:26.551466000 +0100</span>
-<span class="plus3">+++ testOutput/function_simple.s	2015-03-17 17:50:06.920906000 +0100</span>
-<span class="at2">@@ -1,2 +1,154 @@</span>
+<span class="plus3">+++ testOutput/function_simple.s	2015-03-17 18:08:27.548611000 +0100</span>
+<span class="at2">@@ -1,2 +1,155 @@</span>
 <span class="minus">-5 </span>
 <span class="minus">-5 5 </span>
 <span class="plus">+.syntax unified</span>
@@ -53,9 +53,10 @@
 <span class="plus">+#9 Starting CONSTANT</span>
 <span class="plus">+	movw	r0, #:lower16:.STRING0</span>
 <span class="plus">+	movt	r0, #:upper16:.STRING0</span>
+<span class="plus">+	push	{r0}</span>
 <span class="plus">+#10 End CONSTANT</span>
 <span class="plus">+	pop	{r5}</span>
-<span class="plus">+	str	r5, [(null), #4254603]</span>
+<span class="plus">+	str	r5, [(null), #4254667]</span>
 <span class="plus">+#11 End ASSIGNMENT_STATEMENT</span>
 <span class="plus">+#12 Starting ASSIGNMENT_STATEMENT</span>
 <span class="plus">+#13 Starting VARIABLE</span>
@@ -65,7 +66,7 @@
 <span class="plus">+#15 Starting EXPRESSION of type FUNC_CALL</span>
 <span class="plus">+#16 Ending EXPRESSION of type FUNC_CALL</span>
 <span class="plus">+	pop	{r5}</span>
-<span class="plus">+	str	r5, [(null), #4254599]</span>
+<span class="plus">+	str	r5, [(null), #4254663]</span>
 <span class="plus">+#17 End ASSIGNMENT_STATEMENT</span>
 <span class="plus">+#18 Starting PRINT_STATEMENT</span>
 <span class="plus">+	push	{r6}</span>

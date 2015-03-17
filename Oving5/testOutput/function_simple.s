@@ -31,9 +31,10 @@ ERROR, LOAD format not correct
 #9 Starting CONSTANT
 	movw	r0, #:lower16:.STRING0
 	movt	r0, #:upper16:.STRING0
+	push	{r0}
 #10 End CONSTANT
 	pop	{r5}
-	str	r5, [(null), #4254603]
+	str	r5, [(null), #4254667]
 #11 End ASSIGNMENT_STATEMENT
 #12 Starting ASSIGNMENT_STATEMENT
 #13 Starting VARIABLE
@@ -43,7 +44,7 @@ ERROR, LOAD format not correct
 #15 Starting EXPRESSION of type FUNC_CALL
 #16 Ending EXPRESSION of type FUNC_CALL
 	pop	{r5}
-	str	r5, [(null), #4254599]
+	str	r5, [(null), #4254663]
 #17 End ASSIGNMENT_STATEMENT
 #18 Starting PRINT_STATEMENT
 	push	{r6}

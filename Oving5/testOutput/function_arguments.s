@@ -37,9 +37,10 @@ ERROR, LOAD format not correct
 #13 Starting CONSTANT
 	movw	r0, #:lower16:.STRING0
 	movt	r0, #:upper16:.STRING0
+	push	{r0}
 #14 End CONSTANT
 	pop	{r5}
-	str	r5, [(null), #4254603]
+	str	r5, [(null), #4254667]
 #15 End ASSIGNMENT_STATEMENT
 #16 Starting ASSIGNMENT_STATEMENT
 #17 Starting VARIABLE
@@ -49,9 +50,10 @@ ERROR, LOAD format not correct
 #19 Starting CONSTANT
 	movw	r0, #:lower16:.STRING0
 	movt	r0, #:upper16:.STRING0
+	push	{r0}
 #20 End CONSTANT
 	pop	{r5}
-	str	r5, [(null), #4254599]
+	str	r5, [(null), #4254663]
 #21 End ASSIGNMENT_STATEMENT
 #22 Starting ASSIGNMENT_STATEMENT
 #23 Starting VARIABLE
@@ -61,9 +63,10 @@ ERROR, LOAD format not correct
 #25 Starting CONSTANT
 	movw	r0, #:lower16:.STRING0
 	movt	r0, #:upper16:.STRING0
+	push	{r0}
 #26 End CONSTANT
 	pop	{r5}
-	str	r5, [(null), #4254595]
+	str	r5, [(null), #4254659]
 #27 End ASSIGNMENT_STATEMENT
 #28 Starting ASSIGNMENT_STATEMENT
 #29 Starting VARIABLE
@@ -73,9 +76,10 @@ ERROR, LOAD format not correct
 #31 Starting CONSTANT
 	movw	r0, #:lower16:.STRING0
 	movt	r0, #:upper16:.STRING0
+	push	{r0}
 #32 End CONSTANT
 	pop	{r5}
-	str	r5, [(null), #4254591]
+	str	r5, [(null), #4254655]
 #33 End ASSIGNMENT_STATEMENT
 #34 Starting DECLARATION: adding space on stack
 	push	{r0}
@@ -91,7 +95,7 @@ ERROR, LOAD format not correct
 #41 Starting EXPRESSION of type FUNC_CALL
 #42 Ending EXPRESSION of type FUNC_CALL
 	pop	{r5}
-	str	r5, [(null), #4254587]
+	str	r5, [(null), #4254651]
 #43 End ASSIGNMENT_STATEMENT
 #44 Starting ASSIGNMENT_STATEMENT
 #45 Starting VARIABLE
@@ -101,7 +105,7 @@ ERROR, LOAD format not correct
 #47 Starting EXPRESSION of type FUNC_CALL
 #48 Ending EXPRESSION of type FUNC_CALL
 	pop	{r5}
-	str	r5, [(null), #4254583]
+	str	r5, [(null), #4254647]
 #49 End ASSIGNMENT_STATEMENT
 #50 Starting PRINT_STATEMENT
 	push	{r6}

@@ -1,6 +1,6 @@
 --- correctOutput/function_simple.s12	2015-03-13 13:54:26.551466000 +0100
-+++ testOutput/function_simple.s	2015-03-17 17:50:06.920906000 +0100
-@@ -1,2 +1,154 @@
++++ testOutput/function_simple.s	2015-03-17 18:08:27.548611000 +0100
+@@ -1,2 +1,155 @@
 -5 
 -5 5 
 +.syntax unified
@@ -36,9 +36,10 @@
 +#9 Starting CONSTANT
 +	movw	r0, #:lower16:.STRING0
 +	movt	r0, #:upper16:.STRING0
++	push	{r0}
 +#10 End CONSTANT
 +	pop	{r5}
-+	str	r5, [(null), #4254603]
++	str	r5, [(null), #4254667]
 +#11 End ASSIGNMENT_STATEMENT
 +#12 Starting ASSIGNMENT_STATEMENT
 +#13 Starting VARIABLE
@@ -48,7 +49,7 @@
 +#15 Starting EXPRESSION of type FUNC_CALL
 +#16 Ending EXPRESSION of type FUNC_CALL
 +	pop	{r5}
-+	str	r5, [(null), #4254599]
++	str	r5, [(null), #4254663]
 +#17 End ASSIGNMENT_STATEMENT
 +#18 Starting PRINT_STATEMENT
 +	push	{r6}

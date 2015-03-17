@@ -1,5 +1,6 @@
 --- correctOutput/function_minimal.s12	2015-03-13 13:54:26.546465000 +0100
-+++ testOutput/function_minimal.s12	2015-03-17 17:50:06.864911000 +0100
-@@ -1,2 +0,0 @@
--In main()
--In function()
++++ testOutput/function_minimal.s12	2015-03-17 18:08:27.455611000 +0100
+@@ -1,2 +1,3 @@
+ In main()
+ In function()
++Hit Debug
