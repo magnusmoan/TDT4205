@@ -180,7 +180,7 @@ void gen_EXPRESSION ( node_t *root, int scopedepth )
 			{
 				node_t* parameters = root->children[0];
 				for(int i = 0; i < parameters->n_children; i++){
-					int offset = parameters[i]->entry->stack_offset;
+					int offset = parameters[i].entry->stack_offset;
 					instruction_add(LDR, r5, fp, 0, offset);
 					instruction_add(PUSH, r5, NULL, 0, 0);
 				}
