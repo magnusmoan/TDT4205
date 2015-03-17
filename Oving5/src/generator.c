@@ -178,11 +178,13 @@ void gen_EXPRESSION ( node_t *root, int scopedepth )
 	switch(expression){
 		case FUNC_CALL_E:
 			{
-				node_t* parameters = root->children[1];
-				for(int i = 0; i < parameters->n_children; i++){
-					int offset = parameters[i].entry->stack_offset;
-					instruction_add(LDR, r5, fp, 0, offset);
-					instruction_add(PUSH, r5, NULL, 0, 0);
+				if(root->children[1] != NULL){
+					node_t* parameters = root->children[1];
+					for(int i = 0; i < parameters->n_children; i++){
+						int offset = parameters[i].entry->stack_offset;
+						instruction_add(LDR, r5, fp, 0, offset);
+						instruction_add(PUSH, r5, NULL, 0, 0);
+					}
 				}
 
 				char* function = root->function_entry->label;
