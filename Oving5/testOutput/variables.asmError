@@ -1,3 +1,7 @@
-/tmp/ccitJmvV.o: In function `noargs':
-(.text+0x88): undefined reference to `_main'
-collect2: error: ld returned 1 exit status
+testOutput/variables.s: Assembler messages:
+testOutput/variables.s:31: Error: bad instruction `error, LOAD format not correct'
+testOutput/variables.s:39: Error: ARM register expected -- `str r5,[(null),#4254603]'
+testOutput/variables.s:43: Error: bad instruction `error, LOAD format not correct'
+testOutput/variables.s:51: Error: ARM register expected -- `str r5,[(null),#4254599]'
+testOutput/variables.s:55: Error: bad instruction `error, LOAD format not correct'
+testOutput/variables.s:63: Error: ARM register expected -- `str r5,[(null),#4254595]'

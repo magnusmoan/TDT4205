@@ -17,9 +17,51 @@
 .text
 #0 Starting PROGRAM
 #1 Starting FUNCTION (main) with depth 2
-#2 Leaving FUNCTION (main) with depth 2
-#3 Starting FUNCTION (function) with depth 2
-#4 Leaving FUNCTION (function) with depth 2
+_main:
+	push	{lr}
+	push	{fp}
+	mov	fp, sp
+#2 Starting PRINT_STATEMENT
+	push	{r6}
+	pop	{r6}
+#3 Starting CONSTANT
+	movw	r0, #:lower16:.STRING0
+	movt	r0, #:upper16:.STRING0
+#4 End CONSTANT
+	pop	{r0}
+	bl	printf
+	movw	r0, #:lower16:0x0A
+	movt	r0, #:upper16:0x0A
+	bl	putchar
+#5 Ending PRINT_STATEMENT
+#6 Starting EXPRESSION of type FUNC_CALL
+#7 Ending EXPRESSION of type FUNC_CALL
+	mov	sp, fp
+	pop	{fp}
+	pop	{lr}
+#8 Leaving FUNCTION (main) with depth 2
+#9 Starting FUNCTION (function) with depth 2
+_function:
+	push	{lr}
+	push	{fp}
+	mov	fp, sp
+#10 Starting PRINT_STATEMENT
+	push	{r6}
+	pop	{r6}
+#11 Starting CONSTANT
+	movw	r0, #:lower16:.STRING1
+	movt	r0, #:upper16:.STRING1
+#12 End CONSTANT
+	pop	{r0}
+	bl	printf
+	movw	r0, #:lower16:0x0A
+	movt	r0, #:upper16:0x0A
+	bl	putchar
+#13 Ending PRINT_STATEMENT
+	mov	sp, fp
+	pop	{fp}
+	pop	{lr}
+#14 Leaving FUNCTION (function) with depth 2
 debugprint:
 	push {r0-r11, lr}
 	movw	r0, #:lower16:.DEBUG
@@ -61,7 +103,7 @@ pusharg:
 	bne	pusharg
 noargs:
 	bl	_main
-#5 End PROGRAM
+#15 End PROGRAM
 	mov	sp, fp
 	pop	{fp}
 	bl	exit

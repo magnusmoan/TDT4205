@@ -13,7 +13,21 @@
 .text
 #0 Starting PROGRAM
 #1 Starting FUNCTION (minimal) with depth 2
-#2 Leaving FUNCTION (minimal) with depth 2
+_minimal:
+	push	{lr}
+	push	{fp}
+	mov	fp, sp
+#2 Starting RETURN_STATEMENT
+#3 Starting CONSTANT
+	movw	r0, #:lower16:.STRING0
+	movt	r0, #:upper16:.STRING0
+#4 End CONSTANT
+	pop	{r0}
+#5 End RETURN_STATEMENT
+	mov	sp, fp
+	pop	{fp}
+	pop	{lr}
+#6 Leaving FUNCTION (minimal) with depth 2
 debugprint:
 	push {r0-r11, lr}
 	movw	r0, #:lower16:.DEBUG
@@ -55,7 +69,7 @@ pusharg:
 	bne	pusharg
 noargs:
 	bl	_minimal
-#3 End PROGRAM
+#7 End PROGRAM
 	mov	sp, fp
 	pop	{fp}
 	bl	exit

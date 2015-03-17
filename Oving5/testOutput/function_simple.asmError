@@ -1,3 +1,9 @@
-/tmp/ccUyv2E3.o: In function `noargs':
-(.text+0x88): undefined reference to `_main'
-collect2: error: ld returned 1 exit status
+testOutput/function_simple.s: Assembler messages:
+testOutput/function_simple.s:28: Error: bad instruction `error, LOAD format not correct'
+testOutput/function_simple.s:36: Error: ARM register expected -- `str r5,[(null),#4254603]'
+testOutput/function_simple.s:40: Error: bad instruction `error, LOAD format not correct'
+testOutput/function_simple.s:46: Error: ARM register expected -- `str r5,[(null),#4254599]'
+testOutput/function_simple.s:52: Error: bad instruction `error, LOAD format not correct'
+testOutput/function_simple.s:60: Error: bad instruction `error, LOAD format not correct'
+testOutput/function_simple.s:87: Error: bad instruction `error, LOAD format not correct'
+testOutput/function_simple.s:100: Error: bad instruction `error, LOAD format not correct'

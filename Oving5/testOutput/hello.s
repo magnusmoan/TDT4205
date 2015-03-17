@@ -15,7 +15,27 @@
 .text
 #0 Starting PROGRAM
 #1 Starting FUNCTION (hello) with depth 2
-#2 Leaving FUNCTION (hello) with depth 2
+_hello:
+	push	{lr}
+	push	{fp}
+	mov	fp, sp
+#2 Starting PRINT_STATEMENT
+	push	{r6}
+	pop	{r6}
+#3 Starting CONSTANT
+	movw	r0, #:lower16:.STRING0
+	movt	r0, #:upper16:.STRING0
+#4 End CONSTANT
+	pop	{r0}
+	bl	printf
+	movw	r0, #:lower16:0x0A
+	movt	r0, #:upper16:0x0A
+	bl	putchar
+#5 Ending PRINT_STATEMENT
+	mov	sp, fp
+	pop	{fp}
+	pop	{lr}
+#6 Leaving FUNCTION (hello) with depth 2
 debugprint:
 	push {r0-r11, lr}
 	movw	r0, #:lower16:.DEBUG
@@ -57,7 +77,7 @@ pusharg:
 	bne	pusharg
 noargs:
 	bl	_hello
-#3 End PROGRAM
+#7 End PROGRAM
 	mov	sp, fp
 	pop	{fp}
 	bl	exit

@@ -1,3 +1,5 @@
-/tmp/ccBGrEFT.o: In function `noargs':
-(.text+0x88): undefined reference to `_minimal'
+/tmp/cc6dN1Ou.o: In function `_minimal':
+(.text+0xc): undefined reference to `.STRING0'
+/tmp/cc6dN1Ou.o: In function `_minimal':
+(.text+0x10): undefined reference to `.STRING0'
 collect2: error: ld returned 1 exit status
