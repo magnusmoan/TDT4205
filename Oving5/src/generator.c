@@ -232,7 +232,6 @@ void gen_EXPRESSION ( node_t *root, int scopedepth )
 
 void gen_VARIABLE ( node_t *root, int scopedepth )
 {
-
 	tracePrint ( "Starting VARIABLE\n");
 
 	int offset = root->entry->stack_offset;
@@ -287,11 +286,11 @@ void gen_ASSIGNMENT_STATEMENT ( node_t *root, int scopedepth )
 	if(root->children[0]->nodetype.index == VARIABLE){
 		offset = root->children[0]->entry->stack_offset;
 	}else{
-		offset = root->children[0]->children[0]->entry->stack_offset;
+		offset = find_stackOffset(root);
+		position = find_position(root->children[0], 1);
 		instruction_add(LDR, r3, fp, 0, offset);
-		int index = 4*(root->children[0]->children[1]->int_const);
 		char* string[20];
-		sprintf(string, "%d", index);
+		sprintf(string, "%d", position);
 		instruction_add(MOVE32, r2, STRDUP(string), 0, 0);
 		instruction_add3(ADD, r3, r3, r2);
 	}
@@ -309,6 +308,21 @@ void gen_ASSIGNMENT_STATEMENT ( node_t *root, int scopedepth )
 	}
 	
 	tracePrint ( "End ASSIGNMENT_STATEMENT\n");
+}
+
+int find_stackOffset (node_t *root){
+	if(root->children[0]->nodetype.index != VARIABLE){
+		return find_stackOffset(root->children[0]);
+	}
+	return root->children[0]->entry->stack_offset;
+}
+
+int find_position (node_t *root, position){
+	if(root->children[0]->n_children == 2){
+		position = position * root->children[0]->children[1]->int_const;
+		find_position(root->children[0], position);
+	}
+	return position;
 }
 
 
