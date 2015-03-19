@@ -197,6 +197,14 @@ void gen_EXPRESSION ( node_t *root, int scopedepth )
 			break;
 		case NEW_E:
 			{
+				int array_dimensions = root->children[0]->data_type.n_dimensions;
+				for(int i = 0; i < array_dimensions; i++){
+					int index = root->children[0]->data_type.dimensions[i];
+					char* string[20];
+					sprintf(string, "%d", index);
+					instruction_add(LDR, r5, STRDUP(string), 0, 0);
+					instruction_add(PUSH, r5, NULL, 0, 0);
+				}
 				instruction_add(BL, "_malloc", NULL, 0, 0);
 			}
 			break;
