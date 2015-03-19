@@ -202,8 +202,8 @@ void gen_EXPRESSION ( node_t *root, int scopedepth )
 					int index = root->children[0]->data_type.dimensions[i];
 					char* string[20];
 					sprintf(string, "%d", index);
-					instruction_add(MOVE32, r5, STRDUP(string), 0, 0);
-					instruction_add(PUSH, r5, NULL, 0, 0);
+					instruction_add(MOVE32, r6, STRDUP(string), 0, 0);
+					instruction_add(PUSH, r6, NULL, 0, 0);
 				}
 				instruction_add(BL, "_malloc", NULL, 0, 0);
 			}
