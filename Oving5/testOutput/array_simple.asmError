@@ -1,2 +1,3 @@
-testOutput/array_simple.s: Assembler messages:
-testOutput/array_simple.s:61: Error: ARM register expected -- `ldr r5,[2]'
+/usr/lib/gcc-cross/arm-linux-gnueabihf/4.8/../../../../arm-linux-gnueabihf/lib/../lib/crt1.o: In function `_start':
+(.text+0x28): undefined reference to `main'
+collect2: error: ld returned 1 exit status

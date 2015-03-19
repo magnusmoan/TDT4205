@@ -27,45 +27,21 @@ _main:
 	push	{r0}
 #7 Ending DECLARATION
 #8 Starting ASSIGNMENT_STATEMENT
-#9 Starting VARIABLE
-	ldr	r5, [fp, #-4]
-	push	{r5}
-#10 End VARIABLE a, depth difference: 0, stack offset: -4
-#11 Starting CONSTANT
-	movw	r5, #:lower16:10
-	movt	r5, #:upper16:10
-	push	{r5}
-#12 End CONSTANT
 	pop	{r5}
 	str	r5, [fp, #-4]
-#13 End ASSIGNMENT_STATEMENT
-#14 Starting ASSIGNMENT_STATEMENT
-#15 Starting VARIABLE
-	ldr	r5, [fp, #-8]
-	push	{r5}
-#16 End VARIABLE b, depth difference: 0, stack offset: -8
-#17 Starting CONSTANT
-	mov	r5, #1
-	push	{r5}
-#18 End CONSTANT
+#9 End ASSIGNMENT_STATEMENT
+#10 Starting ASSIGNMENT_STATEMENT
 	pop	{r5}
 	str	r5, [fp, #-8]
-#19 End ASSIGNMENT_STATEMENT
-#20 Starting ASSIGNMENT_STATEMENT
-#21 Starting VARIABLE
-	ldr	r5, [fp, #-12]
-	push	{r5}
-#22 End VARIABLE c, depth difference: 0, stack offset: -12
-#23 Starting CONSTANT
-	push	{r5}
-#24 End CONSTANT
+#11 End ASSIGNMENT_STATEMENT
+#12 Starting ASSIGNMENT_STATEMENT
 	pop	{r5}
 	str	r5, [fp, #-12]
-#25 End ASSIGNMENT_STATEMENT
+#13 End ASSIGNMENT_STATEMENT
 	mov	sp, fp
 	pop	{fp}
 	pop	{pc}
-#26 Leaving FUNCTION (main) with depth 2
+#14 Leaving FUNCTION (main) with depth 2
 debugprint:
 	push {r0-r11, lr}
 	movw	r0, #:lower16:.DEBUG
@@ -107,7 +83,7 @@ pusharg:
 	bne	pusharg
 noargs:
 	bl	_main
-#27 End PROGRAM
+#15 End PROGRAM
 	mov	sp, fp
 	pop	{fp}
 	bl	exit
