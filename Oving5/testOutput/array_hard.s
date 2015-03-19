@@ -32,8 +32,8 @@ _main:
 #7 End ASSIGNMENT_STATEMENT
 #8 Starting ASSIGNMENT_STATEMENT
 	ldr	r3, [fp, #-4]
-	movw	r2, #:lower16:8
-	movt	r2, #:upper16:8
+	movw	r2, #:lower16:16
+	movt	r2, #:upper16:16
 	add	r3, r3, r2
 #9 Starting CONSTANT
 	movw	r5, #:lower16:5
@@ -48,8 +48,8 @@ _main:
 	pop	{r6}
 #13 Starting EXPRESSION of type ARRAY_INDEX
 	ldr	r5, [fp, #-4]
-	movw	r6, #:lower16:8
-	movt	r6, #:upper16:8
+	movw	r6, #:lower16:16
+	movt	r6, #:upper16:16
 	add	r5, r5, r6
 	ldr	r5, [r5]
 	push	{r5}
@@ -77,8 +77,8 @@ _main:
 #21 End ASSIGNMENT_STATEMENT
 #22 Starting ASSIGNMENT_STATEMENT
 	ldr	r3, [fp, #-8]
-	movw	r2, #:lower16:8
-	movt	r2, #:upper16:8
+	movw	r2, #:lower16:0
+	movt	r2, #:upper16:0
 	add	r3, r3, r2
 #23 Starting CONSTANT
 	movw	r5, #:lower16:10
