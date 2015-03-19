@@ -35,8 +35,8 @@ _main:
 	movt	r5, #:upper16:5
 	push	{r5}
 #12 End CONSTANT
-	pop	{r5}
-	str	r5, [fp, #-4]
+	pop	{r0}
+	str	r0, [fp, #-4]
 #13 End ASSIGNMENT_STATEMENT
 #14 Starting ASSIGNMENT_STATEMENT
 #15 Starting CONSTANT
@@ -44,8 +44,8 @@ _main:
 	movt	r5, #:upper16:6
 	push	{r5}
 #16 End CONSTANT
-	pop	{r5}
-	str	r5, [fp, #-8]
+	pop	{r0}
+	str	r0, [fp, #-8]
 #17 End ASSIGNMENT_STATEMENT
 #18 Starting ASSIGNMENT_STATEMENT
 #19 Starting CONSTANT
@@ -53,8 +53,8 @@ _main:
 	movt	r5, #:upper16:7
 	push	{r5}
 #20 End CONSTANT
-	pop	{r5}
-	str	r5, [fp, #-12]
+	pop	{r0}
+	str	r0, [fp, #-12]
 #21 End ASSIGNMENT_STATEMENT
 #22 Starting ASSIGNMENT_STATEMENT
 #23 Starting CONSTANT
@@ -62,8 +62,8 @@ _main:
 	movt	r5, #:upper16:8
 	push	{r5}
 #24 End CONSTANT
-	pop	{r5}
-	str	r5, [fp, #-16]
+	pop	{r0}
+	str	r0, [fp, #-16]
 #25 End ASSIGNMENT_STATEMENT
 #26 Starting DECLARATION: adding space on stack
 	push	{r0}
@@ -72,26 +72,48 @@ _main:
 	push	{r0}
 #29 Ending DECLARATION
 #30 Starting ASSIGNMENT_STATEMENT
+#31 Starting EXPRESSION of type FUNC_CALL
+	ldr	r5, [fp, #-4]
+	push	{r5}
+	ldr	r5, [fp, #-8]
+	push	{r5}
+	ldr	r5, [fp, #-12]
+	push	{r5}
+	bl	_func1
+#32 Ending EXPRESSION of type FUNC_CALL
 	str	r0, [fp, #-20]
-#31 End ASSIGNMENT_STATEMENT
-#32 Starting ASSIGNMENT_STATEMENT
-	str	r0, [fp, #-24]
 #33 End ASSIGNMENT_STATEMENT
-#34 Starting PRINT_STATEMENT
-	push	{r6}
-	pop	{r6}
-#35 Starting VARIABLE
+#34 Starting ASSIGNMENT_STATEMENT
+#35 Starting EXPRESSION of type FUNC_CALL
+	ldr	r5, [fp, #-4]
+	push	{r5}
+	ldr	r5, [fp, #-8]
+	push	{r5}
+	ldr	r5, [fp, #-12]
+	push	{r5}
+	ldr	r5, [fp, #-16]
+	push	{r5}
 	ldr	r5, [fp, #-20]
 	push	{r5}
-#36 End VARIABLE e, depth difference: 0, stack offset: -20
+	bl	_func2
+#36 Ending EXPRESSION of type FUNC_CALL
+	str	r0, [fp, #-24]
+#37 End ASSIGNMENT_STATEMENT
+#38 Starting PRINT_STATEMENT
+	push	{r6}
+	pop	{r6}
+#39 Starting VARIABLE
+	ldr	r5, [fp, #-20]
+	push	{r5}
+#40 End VARIABLE e, depth difference: 0, stack offset: -20
 	movw  r0, #:lower16:.INTEGER
 	movt  r0, #:upper16:.INTEGER
 	pop	{r1}
 	bl	printf
-#37 Starting VARIABLE
+#41 Starting VARIABLE
 	ldr	r5, [fp, #-24]
 	push	{r5}
-#38 End VARIABLE f, depth difference: 0, stack offset: -24
+#42 End VARIABLE f, depth difference: 0, stack offset: -24
 	movw  r0, #:lower16:.INTEGER
 	movt  r0, #:upper16:.INTEGER
 	pop	{r1}
@@ -99,48 +121,48 @@ _main:
 	movw	r0, #:lower16:0x0A
 	movt	r0, #:upper16:0x0A
 	bl	putchar
-#39 Ending PRINT_STATEMENT
+#43 Ending PRINT_STATEMENT
 	mov	sp, fp
 	pop	{fp}
 	pop	{pc}
-#40 Leaving FUNCTION (main) with depth 2
-#41 Starting FUNCTION (func1) with depth 2
+#44 Leaving FUNCTION (main) with depth 2
+#45 Starting FUNCTION (func1) with depth 2
 _func1:
 	push	{lr}
 	push	{fp}
 	mov	fp, sp
-#42 Starting DECLARATION: adding space on stack
-	push	{r0}
-#43 Ending DECLARATION
-#44 Starting DECLARATION: adding space on stack
-	push	{r0}
-#45 Ending DECLARATION
 #46 Starting DECLARATION: adding space on stack
 	push	{r0}
 #47 Ending DECLARATION
-#48 Starting PRINT_STATEMENT
+#48 Starting DECLARATION: adding space on stack
+	push	{r0}
+#49 Ending DECLARATION
+#50 Starting DECLARATION: adding space on stack
+	push	{r0}
+#51 Ending DECLARATION
+#52 Starting PRINT_STATEMENT
 	push	{r6}
 	pop	{r6}
-#49 Starting VARIABLE
+#53 Starting VARIABLE
 	ldr	r5, [fp, #16]
 	push	{r5}
-#50 End VARIABLE x, depth difference: 0, stack offset: 16
+#54 End VARIABLE x, depth difference: 0, stack offset: 16
 	movw  r0, #:lower16:.INTEGER
 	movt  r0, #:upper16:.INTEGER
 	pop	{r1}
 	bl	printf
-#51 Starting VARIABLE
+#55 Starting VARIABLE
 	ldr	r5, [fp, #12]
 	push	{r5}
-#52 End VARIABLE y, depth difference: 0, stack offset: 12
+#56 End VARIABLE y, depth difference: 0, stack offset: 12
 	movw  r0, #:lower16:.INTEGER
 	movt  r0, #:upper16:.INTEGER
 	pop	{r1}
 	bl	printf
-#53 Starting VARIABLE
+#57 Starting VARIABLE
 	ldr	r5, [fp, #8]
 	push	{r5}
-#54 End VARIABLE z, depth difference: 0, stack offset: 8
+#58 End VARIABLE z, depth difference: 0, stack offset: 8
 	movw  r0, #:lower16:.INTEGER
 	movt  r0, #:upper16:.INTEGER
 	pop	{r1}
@@ -148,29 +170,23 @@ _func1:
 	movw	r0, #:lower16:0x0A
 	movt	r0, #:upper16:0x0A
 	bl	putchar
-#55 Ending PRINT_STATEMENT
-#56 Starting RETURN_STATEMENT
-#57 Starting VARIABLE
+#59 Ending PRINT_STATEMENT
+#60 Starting RETURN_STATEMENT
+#61 Starting VARIABLE
 	ldr	r5, [fp, #8]
 	push	{r5}
-#58 End VARIABLE z, depth difference: 0, stack offset: 8
+#62 End VARIABLE z, depth difference: 0, stack offset: 8
 	pop	{r0}
-#59 End RETURN_STATEMENT
+#63 End RETURN_STATEMENT
 	mov	sp, fp
 	pop	{fp}
 	pop	{pc}
-#60 Leaving FUNCTION (func1) with depth 2
-#61 Starting FUNCTION (func2) with depth 2
+#64 Leaving FUNCTION (func1) with depth 2
+#65 Starting FUNCTION (func2) with depth 2
 _func2:
 	push	{lr}
 	push	{fp}
 	mov	fp, sp
-#62 Starting DECLARATION: adding space on stack
-	push	{r0}
-#63 Ending DECLARATION
-#64 Starting DECLARATION: adding space on stack
-	push	{r0}
-#65 Ending DECLARATION
 #66 Starting DECLARATION: adding space on stack
 	push	{r0}
 #67 Ending DECLARATION
@@ -180,45 +196,51 @@ _func2:
 #70 Starting DECLARATION: adding space on stack
 	push	{r0}
 #71 Ending DECLARATION
-#72 Starting PRINT_STATEMENT
+#72 Starting DECLARATION: adding space on stack
+	push	{r0}
+#73 Ending DECLARATION
+#74 Starting DECLARATION: adding space on stack
+	push	{r0}
+#75 Ending DECLARATION
+#76 Starting PRINT_STATEMENT
 	push	{r6}
 	pop	{r6}
-#73 Starting VARIABLE
+#77 Starting VARIABLE
 	ldr	r5, [fp, #24]
 	push	{r5}
-#74 End VARIABLE x, depth difference: 0, stack offset: 24
-	movw  r0, #:lower16:.INTEGER
-	movt  r0, #:upper16:.INTEGER
-	pop	{r1}
-	bl	printf
-#75 Starting VARIABLE
-	ldr	r5, [fp, #20]
-	push	{r5}
-#76 End VARIABLE y, depth difference: 0, stack offset: 20
-	movw  r0, #:lower16:.INTEGER
-	movt  r0, #:upper16:.INTEGER
-	pop	{r1}
-	bl	printf
-#77 Starting VARIABLE
-	ldr	r5, [fp, #16]
-	push	{r5}
-#78 End VARIABLE z, depth difference: 0, stack offset: 16
+#78 End VARIABLE x, depth difference: 0, stack offset: 24
 	movw  r0, #:lower16:.INTEGER
 	movt  r0, #:upper16:.INTEGER
 	pop	{r1}
 	bl	printf
 #79 Starting VARIABLE
-	ldr	r5, [fp, #12]
+	ldr	r5, [fp, #20]
 	push	{r5}
-#80 End VARIABLE w, depth difference: 0, stack offset: 12
+#80 End VARIABLE y, depth difference: 0, stack offset: 20
 	movw  r0, #:lower16:.INTEGER
 	movt  r0, #:upper16:.INTEGER
 	pop	{r1}
 	bl	printf
 #81 Starting VARIABLE
+	ldr	r5, [fp, #16]
+	push	{r5}
+#82 End VARIABLE z, depth difference: 0, stack offset: 16
+	movw  r0, #:lower16:.INTEGER
+	movt  r0, #:upper16:.INTEGER
+	pop	{r1}
+	bl	printf
+#83 Starting VARIABLE
+	ldr	r5, [fp, #12]
+	push	{r5}
+#84 End VARIABLE w, depth difference: 0, stack offset: 12
+	movw  r0, #:lower16:.INTEGER
+	movt  r0, #:upper16:.INTEGER
+	pop	{r1}
+	bl	printf
+#85 Starting VARIABLE
 	ldr	r5, [fp, #8]
 	push	{r5}
-#82 End VARIABLE ae, depth difference: 0, stack offset: 8
+#86 End VARIABLE ae, depth difference: 0, stack offset: 8
 	movw  r0, #:lower16:.INTEGER
 	movt  r0, #:upper16:.INTEGER
 	pop	{r1}
@@ -226,18 +248,18 @@ _func2:
 	movw	r0, #:lower16:0x0A
 	movt	r0, #:upper16:0x0A
 	bl	putchar
-#83 Ending PRINT_STATEMENT
-#84 Starting RETURN_STATEMENT
-#85 Starting VARIABLE
+#87 Ending PRINT_STATEMENT
+#88 Starting RETURN_STATEMENT
+#89 Starting VARIABLE
 	ldr	r5, [fp, #16]
 	push	{r5}
-#86 End VARIABLE z, depth difference: 0, stack offset: 16
+#90 End VARIABLE z, depth difference: 0, stack offset: 16
 	pop	{r0}
-#87 End RETURN_STATEMENT
+#91 End RETURN_STATEMENT
 	mov	sp, fp
 	pop	{fp}
 	pop	{pc}
-#88 Leaving FUNCTION (func2) with depth 2
+#92 Leaving FUNCTION (func2) with depth 2
 debugprint:
 	push {r0-r11, lr}
 	movw	r0, #:lower16:.DEBUG
@@ -279,7 +301,7 @@ pusharg:
 	bne	pusharg
 noargs:
 	bl	_main
-#89 End PROGRAM
+#93 End PROGRAM
 	mov	sp, fp
 	pop	{fp}
 	bl	exit

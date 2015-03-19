@@ -12,8 +12,8 @@
 .align	2
 .text
 #0 Starting PROGRAM
-#1 Starting FUNCTION (main) with depth 2
-_main:
+#1 Starting FUNCTION (arrayTest) with depth 2
+_arrayTest:
 	push	{lr}
 	push	{fp}
 	mov	fp, sp
@@ -24,54 +24,84 @@ _main:
 	push	{r0}
 #5 Ending DECLARATION
 #6 Starting ASSIGNMENT_STATEMENT
-	pop	{r5}
-	str	r5, [fp, #-4]
-#7 End ASSIGNMENT_STATEMENT
-#8 Starting ASSIGNMENT_STATEMENT
-	str	r0, [fp, #-8]
+#7 Starting CONSTANT
+	movw	r5, #:lower16:66
+	movt	r5, #:upper16:66
+	push	{r5}
+#8 End CONSTANT
+	pop	{r0}
+	str	r0, [fp, #-4]
 #9 End ASSIGNMENT_STATEMENT
-#10 Starting PRINT_STATEMENT
+#10 Starting ASSIGNMENT_STATEMENT
+#11 Starting CONSTANT
+	movw	r5, #:lower16:44
+	movt	r5, #:upper16:44
+	push	{r5}
+#12 End CONSTANT
+	pop	{r0}
+	str	r0, [fp, #-8]
+#13 End ASSIGNMENT_STATEMENT
+#14 Starting DECLARATION: adding space on stack
+	push	{r0}
+#15 Ending DECLARATION
+#16 Starting ASSIGNMENT_STATEMENT
+#17 Starting EXPRESSION of type NEW
+	movw	r6, #:lower16:8
+	movt	r6, #:upper16:8
 	push	{r6}
+	bl	_malloc
 	pop	{r6}
-#11 Starting VARIABLE
+	pop	{r0}
+#18 Ending EXPRESSION of type NEW
+	str	r0, [fp, #-12]
+#19 End ASSIGNMENT_STATEMENT
+#20 Starting ASSIGNMENT_STATEMENT
+	ldr	r3, [fp, #-12]
+	movw	r2, #:lower16:0
+	movt	r2, #:upper16:0
+	add	r3, r3, r2
+#21 Starting VARIABLE
 	ldr	r5, [fp, #-4]
 	push	{r5}
-#12 End VARIABLE a, depth difference: 0, stack offset: -4
-	movw  r0, #:lower16:.INTEGER
-	movt  r0, #:upper16:.INTEGER
-	pop	{r1}
-	bl	printf
-#13 Starting VARIABLE
+#22 End VARIABLE a, depth difference: 0, stack offset: -4
+	pop	{r0}
+	str	r0, [r3]
+#23 End ASSIGNMENT_STATEMENT
+#24 Starting ASSIGNMENT_STATEMENT
+	ldr	r3, [fp, #-12]
+	movw	r2, #:lower16:4
+	movt	r2, #:upper16:4
+	add	r3, r3, r2
+#25 Starting VARIABLE
 	ldr	r5, [fp, #-8]
 	push	{r5}
-#14 End VARIABLE b, depth difference: 0, stack offset: -8
-	movw  r0, #:lower16:.INTEGER
-	movt  r0, #:upper16:.INTEGER
-	pop	{r1}
-	bl	printf
-	movw	r0, #:lower16:0x0A
-	movt	r0, #:upper16:0x0A
-	bl	putchar
-#15 Ending PRINT_STATEMENT
-	mov	sp, fp
-	pop	{fp}
-	pop	{pc}
-#16 Leaving FUNCTION (main) with depth 2
-#17 Starting FUNCTION (func) with depth 2
-_func:
-	push	{lr}
-	push	{fp}
-	mov	fp, sp
-#18 Starting DECLARATION: adding space on stack
-	push	{r0}
-#19 Ending DECLARATION
-#20 Starting PRINT_STATEMENT
+#26 End VARIABLE b, depth difference: 0, stack offset: -8
+	pop	{r0}
+	str	r0, [r3]
+#27 End ASSIGNMENT_STATEMENT
+#28 Starting PRINT_STATEMENT
 	push	{r6}
 	pop	{r6}
-#21 Starting VARIABLE
-	ldr	r5, [fp, #8]
+#29 Starting EXPRESSION of type ARRAY_INDEX
+	ldr	r5, [fp, #-12]
+	movw	r6, #:lower16:0
+	movt	r6, #:upper16:0
+	add	r5, r5, r6
+	ldr	r5, [r5]
 	push	{r5}
-#22 End VARIABLE x, depth difference: 0, stack offset: 8
+#30 Ending EXPRESSION of type ARRAY_INDEX
+	movw  r0, #:lower16:.INTEGER
+	movt  r0, #:upper16:.INTEGER
+	pop	{r1}
+	bl	printf
+#31 Starting EXPRESSION of type ARRAY_INDEX
+	ldr	r5, [fp, #-12]
+	movw	r6, #:lower16:4
+	movt	r6, #:upper16:4
+	add	r5, r5, r6
+	ldr	r5, [r5]
+	push	{r5}
+#32 Ending EXPRESSION of type ARRAY_INDEX
 	movw  r0, #:lower16:.INTEGER
 	movt  r0, #:upper16:.INTEGER
 	pop	{r1}
@@ -79,18 +109,11 @@ _func:
 	movw	r0, #:lower16:0x0A
 	movt	r0, #:upper16:0x0A
 	bl	putchar
-#23 Ending PRINT_STATEMENT
-#24 Starting RETURN_STATEMENT
-#25 Starting VARIABLE
-	ldr	r5, [fp, #8]
-	push	{r5}
-#26 End VARIABLE x, depth difference: 0, stack offset: 8
-	pop	{r0}
-#27 End RETURN_STATEMENT
+#33 Ending PRINT_STATEMENT
 	mov	sp, fp
 	pop	{fp}
 	pop	{pc}
-#28 Leaving FUNCTION (func) with depth 2
+#34 Leaving FUNCTION (arrayTest) with depth 2
 debugprint:
 	push {r0-r11, lr}
 	movw	r0, #:lower16:.DEBUG
@@ -131,8 +154,8 @@ pusharg:
 	cmp	r5,#0
 	bne	pusharg
 noargs:
-	bl	_main
-#29 End PROGRAM
+	bl	_arrayTest
+#35 End PROGRAM
 	mov	sp, fp
 	pop	{fp}
 	bl	exit

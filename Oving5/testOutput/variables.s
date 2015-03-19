@@ -32,23 +32,23 @@ _main:
 	movt	r5, #:upper16:10
 	push	{r5}
 #10 End CONSTANT
-	pop	{r5}
-	str	r5, [fp, #-4]
+	pop	{r0}
+	str	r0, [fp, #-4]
 #11 End ASSIGNMENT_STATEMENT
 #12 Starting ASSIGNMENT_STATEMENT
 #13 Starting CONSTANT
 	mov	r5, #1
 	push	{r5}
 #14 End CONSTANT
-	pop	{r5}
-	str	r5, [fp, #-8]
+	pop	{r0}
+	str	r0, [fp, #-8]
 #15 End ASSIGNMENT_STATEMENT
 #16 Starting ASSIGNMENT_STATEMENT
 #17 Starting CONSTANT
 	push	{r5}
 #18 End CONSTANT
-	pop	{r5}
-	str	r5, [fp, #-12]
+	pop	{r0}
+	str	r0, [fp, #-12]
 #19 End ASSIGNMENT_STATEMENT
 	mov	sp, fp
 	pop	{fp}

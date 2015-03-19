@@ -1,3 +1,3 @@
-/usr/lib/gcc-cross/arm-linux-gnueabihf/4.8/../../../../arm-linux-gnueabihf/lib/../lib/crt1.o: In function `_start':
-(.text+0x28): undefined reference to `main'
-collect2: error: ld returned 1 exit status
+testOutput/array_simple.s: Assembler messages:
+testOutput/array_simple.s:13: Error: unexpected character `t' in type specifier
+testOutput/array_simple.s:13: Error: bad instruction `€4h.text'
