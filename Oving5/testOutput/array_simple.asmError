@@ -1,3 +1,0 @@
-testOutput/array_simple.s: Assembler messages:
-testOutput/array_simple.s:13: Error: unexpected character `t' in type specifier
-testOutput/array_simple.s:13: Error: bad instruction `€4h.text'
