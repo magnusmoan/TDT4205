@@ -1,5 +1,5 @@
 --- correctOutput/array_types.s12	2015-03-13 13:54:26.495465000 +0100
-+++ testOutput/array_types.s	2015-03-19 14:49:57.992902000 +0100
++++ testOutput/array_types.s	2015-03-19 14:59:04.845830000 +0100
 @@ -1,2 +0,0 @@
 -42 
 -43 
