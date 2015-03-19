@@ -286,12 +286,12 @@ void gen_ASSIGNMENT_STATEMENT ( node_t *root, int scopedepth )
 		offset = root->children[0]->entry->stack_offset;
 	}else{
 		offset = root->children[0]->children[0]->entry->stack_offset;
-		instruction_add(LDR, r5, fp, 0, offset);
+		instruction_add(LDR, r3, fp, 0, offset);
 		int index = 4*(root->children[0]->children[1]->int_const);
 		char* string[20];
 		sprintf(string, "%d", index);
-		instruction_add(MOVE32, r6, STRDUP(string), 0, 0);
-		instruction_add3(ADD, r5, r5, r6);
+		instruction_add(MOVE32, r4, STRDUP(string), 0, 0);
+		instruction_add3(ADD, r3, r3, r4);
 	}
 	
 	
@@ -301,7 +301,7 @@ void gen_ASSIGNMENT_STATEMENT ( node_t *root, int scopedepth )
 		instruction_add(POP, r0, NULL, 0, 0);
 	}
 	if(root->children[0]->nodetype.index != VARIABLE){
-		instruction_add(STR, r0, r5, 0, 0);
+		instruction_add(STR, r0, r3, 0, 0);
 	}else{
 	    instruction_add(STR, r0, fp, 0, offset);
 	}
