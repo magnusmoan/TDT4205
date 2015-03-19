@@ -272,10 +272,12 @@ void gen_ASSIGNMENT_STATEMENT ( node_t *root, int scopedepth )
 {
 	tracePrint ( "Starting ASSIGNMENT_STATEMENT\n");
 
+	int offset;
+
 	if(root->children[0]->nodetype.index == VARIABLE){
-		int offset = root->children[0]->entry->stack_offset;
+		offset = root->children[0]->entry->stack_offset;
 	}else{
-		int offset = root->children[0]->children[0]->entry->stack_offset;
+		offset = root->children[0]->children[0]->entry->stack_offset;
 		instruction_add(LDR, r5, fp, 0, offset);
 		int index = 4*(root->children[0]->children[1]->int_const);
 		char* string[20];
