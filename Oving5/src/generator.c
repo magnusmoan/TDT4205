@@ -275,6 +275,7 @@ void gen_ASSIGNMENT_STATEMENT ( node_t *root, int scopedepth )
 	int offset = root->children[0]->entry->stack_offset;
 
 	if(root->children[1]->nodetype.index == EXPRESSION){
+		root->children[1]->generate(root->children[1], scopedepth);
 		instruction_add(STR, r0, fp, 0, offset);
 	}else{
 		root->children[1]->generate(root->children[1], scopedepth);
