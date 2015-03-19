@@ -281,7 +281,7 @@ void gen_ASSIGNMENT_STATEMENT ( node_t *root, int scopedepth )
 		instruction_add(LDR, r5, fp, 0, offset);
 		int index = 4*(root->children[0]->children[1]->int_const);
 		char* string[20];
-		sprinf(string, "%d", index);
+		sprintf(string, "%d", index);
 		instruction_add(MOVE32, r6, STRDUP(string), 0, 0);
 		instruction_add3(ADD, r5, r5, r6);
 	}
