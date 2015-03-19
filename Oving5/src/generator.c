@@ -199,7 +199,7 @@ void gen_EXPRESSION ( node_t *root, int scopedepth )
 				int array_dimensions = root->children[0]->data_type.n_dimensions;
 				int space;
 				for(int i = 0; i < array_dimensions; i++){
-					space *= root->children[0]->data_type.dimensions[i];
+					space = space * root->children[0]->data_type.dimensions[i];
 				}
 				char* string[20];
 				printf(string, "%d", space*4);
