@@ -197,7 +197,7 @@ void gen_EXPRESSION ( node_t *root, int scopedepth )
 		case NEW_E:
 			{
 				int array_dimensions = root->children[0]->data_type.n_dimensions;
-				int space;
+				int space = 1;
 				for(int i = 0; i < array_dimensions; i++){
 					tracePrint( "TEST1 %d \n", space);
 					space = space * root->children[0]->data_type.dimensions[i];
