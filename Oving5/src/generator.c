@@ -284,7 +284,7 @@ void gen_ASSIGNMENT_STATEMENT ( node_t *root, int scopedepth )
 		instruction_add(POP, r5, NULL, 0, 0);
 		instruction_add(STR, r5, r6, 0, 0);
 	}else{
-		gen_default(root->children[1]);
+		gen_default(root->children[1], scopedepth);
 		int offset = root->children[0]->entry->stack_offset;
 		instruction_add(POP, r5, NULL, 0, 0);
 		instruction_add(STR, r5, fp, 0, offset);
