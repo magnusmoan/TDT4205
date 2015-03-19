@@ -10,7 +10,7 @@
 .NEWLINE: .ascii "\n \000"
 .globl main
 .align	2
-€4A.text
+.text
 #0 Starting PROGRAM
 #1 Starting FUNCTION (arrayTest) with depth 2
 _arrayTest:
@@ -48,8 +48,8 @@ _arrayTest:
 #17 Starting EXPRESSION of type NEW
 #18 TEST1 1 
 #19 TEST2 2 
-	movw	r6, #:lower16:€4A
-	movt	r6, #:upper16:€4A
+	movw	r6, #:lower16:8
+	movt	r6, #:upper16:8
 	push	{r6}
 	bl	_malloc
 	pop	{r6}
@@ -58,8 +58,8 @@ _arrayTest:
 #21 End ASSIGNMENT_STATEMENT
 #22 Starting ASSIGNMENT_STATEMENT
 	ldr	r3, [fp, #-12]
-	movw	r2, #:lower16:0
-	movt	r2, #:upper16:0
+	movw	r2, #:lower16:1
+	movt	r2, #:upper16:1
 	add	r3, r3, r2
 #23 Starting VARIABLE
 	ldr	r5, [fp, #-4]
@@ -70,8 +70,8 @@ _arrayTest:
 #25 End ASSIGNMENT_STATEMENT
 #26 Starting ASSIGNMENT_STATEMENT
 	ldr	r3, [fp, #-12]
-	movw	r2, #:lower16:4
-	movt	r2, #:upper16:4
+	movw	r2, #:lower16:1
+	movt	r2, #:upper16:1
 	add	r3, r3, r2
 #27 Starting VARIABLE
 	ldr	r5, [fp, #-8]
