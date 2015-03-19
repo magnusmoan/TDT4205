@@ -156,6 +156,10 @@ void gen_FUNCTION ( node_t *root, int scopedepth )
 
 
 void gen_ARRAY(int nDimensions, int* dimensions){
+	// I see now that I should have implemented this method as
+	// a helper instead of doing all the memory allocating inside
+	// the gen_EXPRESSION function. However there is not enough time
+	// to do the implementation. 
 }
 
 
