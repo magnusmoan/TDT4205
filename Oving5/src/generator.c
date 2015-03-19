@@ -271,7 +271,6 @@ void gen_ASSIGNMENT_STATEMENT ( node_t *root, int scopedepth )
 {
 	tracePrint ( "Starting ASSIGNMENT_STATEMENT\n");
 
-	gen_default(root, scopedepth);
 
 	if(root->children[0]->n_children > 0){
 		int offset = root->children[0]->children[0]->entry->stack_offset;
@@ -284,6 +283,7 @@ void gen_ASSIGNMENT_STATEMENT ( node_t *root, int scopedepth )
 		instruction_add(POP, r5, NULL, 0, 0);
 		instruction_add(STR, r5, r6, 0, 0);
 	}else{
+		gen_default(root, scopedepth);
 		int offset = root->children[0]->entry->stack_offset;
 		instruction_add(POP, r5, NULL, 0, 0);
 		instruction_add(STR, r5, fp, 0, offset);
