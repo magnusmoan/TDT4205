@@ -225,7 +225,6 @@ void gen_EXPRESSION ( node_t *root, int scopedepth )
 				instruction_add3(ADD, r5, r5, r6);
 				instruction_add(LDR, r5, r5, 0, 0);
 				instruction_add(PUSH, r5, NULL, 0, 0);
-				instruction_add(POP, r0, NULL, 0, 0);
 			}
 			break;
 	}
