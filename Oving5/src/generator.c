@@ -308,7 +308,10 @@ void gen_ASSIGNMENT_STATEMENT ( node_t *root, int scopedepth )
 
 	if(root->children[1]->nodetype.index != EXPRESSION){
 		instruction_add(POP, r0, NULL, 0, 0);
+	}else if(root->children[1]->expression_type.index == ARRAY_INDEX_E){
+		instruction_add(POP, r0, NULL, 0, 0);
 	}
+
 	if(root->children[0]->nodetype.index != VARIABLE){
 		instruction_add(STR, r0, r3, 0, 0);
 	}else{
