@@ -213,10 +213,14 @@ void gen_EXPRESSION ( node_t *root, int scopedepth )
 			break;
 		case ARRAY_INDEX_E:
 			{
-				int offset = root->children[0]->entry->stack_offset;
-				int index = 4*(root->children[1]->int_const);
+				int offset = find_stackOffset(root);
+				if(root->children[0]->nodetype.index != VARIABLE){
+					position = find_position(root, 1);
+				}else{
+					position = root->children[1]->int_const;
+				}
 				char* string[20];
-				sprintf(string, "%d", index);
+				sprintf(string, "%d", position*4);
 				instruction_add(LDR, r5, fp, 0, offset);
 				instruction_add(MOVE32, r6, STRDUP(string), 0, 0);
 				instruction_add3(ADD, r5, r5, r6);
