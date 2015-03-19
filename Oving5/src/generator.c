@@ -273,7 +273,7 @@ void gen_ASSIGNMENT_STATEMENT ( node_t *root, int scopedepth )
 
 	gen_default(root, scopedepth);
 
-	if(root->children[0]->data_type.array_type != NO_TYPE){
+	if(root->children[0]->n_children > 0){
 		int offset = root->children[0]->children[0]->entry->stack_offset;
 		instruction_add(LDR, r5, fp, 0, offset);
 		int index  = root->children[0]->children[1]->int_const;
