@@ -273,11 +273,21 @@ void gen_ASSIGNMENT_STATEMENT ( node_t *root, int scopedepth )
 
 	gen_default(root, scopedepth);
 
-	int offset = root->children[0]->entry->stack_offset;
-
-	instruction_add(POP, r5, NULL, 0, 0);
-	instruction_add(STR, r5, fp, 0, offset);
-
+	if(root->children[0]->nodetype.index = EXPRESSION){
+		int offset = root->children[0]->children[0]->entry->stack_offset;
+		instruction_add(LDR, r5, fp, 0, offset);
+		int index  = root->children[0]->children[1]->int_const;
+		char* string[20];
+		sprintf(string, "%d", index);
+		instruction_add(MOVE32, r6, STRDUP(string), 0, 0);
+		instruction_add3(ADD, r6, r6, r5);
+		instruction_add(POP, r5, NULL, 0, 0);
+		instruction_add(STR, r5, r6, 0, 0);
+	}else{
+		int offset = root->children[0]->entry->stack_offset;
+		instruction_add(POP, r5, NULL, 0, 0);
+		instruction_add(STR, r5, fp, 0, offset);
+	}
 	tracePrint ( "End ASSIGNMENT_STATEMENT\n");
 }
 
