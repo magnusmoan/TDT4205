@@ -214,6 +214,7 @@ void gen_EXPRESSION ( node_t *root, int scopedepth )
 		case ARRAY_INDEX_E:
 			{
 				int offset = find_stackOffset(root);
+				int position;
 				if(root->children[0]->nodetype.index != VARIABLE){
 					position = find_position(root, 1);
 				}else{
