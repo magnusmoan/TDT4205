@@ -81,6 +81,7 @@ _main:
 	ldr	r5, [r5]
 	push	{r5}
 #26 Ending EXPRESSION of type ARRAY_INDEX
+	pop	{r0}
 	str	r0, [fp, #-8]
 #27 End ASSIGNMENT_STATEMENT
 #28 Starting PRINT_STATEMENT
