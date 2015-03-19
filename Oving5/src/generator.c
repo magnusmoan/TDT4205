@@ -287,7 +287,7 @@ void gen_ASSIGNMENT_STATEMENT ( node_t *root, int scopedepth )
 		offset = root->children[0]->entry->stack_offset;
 	}else{
 		offset = find_stackOffset(root);
-		position = find_position(root->children[0], 1);
+		int position = find_position(root->children[0], 1);
 		instruction_add(LDR, r3, fp, 0, offset);
 		char* string[20];
 		sprintf(string, "%d", position);
