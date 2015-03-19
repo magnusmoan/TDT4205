@@ -317,7 +317,7 @@ int find_stackOffset (node_t *root){
 	return root->children[0]->entry->stack_offset;
 }
 
-int find_position (node_t *root, position){
+int find_position (node_t *root, int position){
 	if(root->children[0]->n_children == 2){
 		position = position * root->children[0]->children[1]->int_const;
 		find_position(root->children[0], position);
