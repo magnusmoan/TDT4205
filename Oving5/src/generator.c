@@ -162,7 +162,7 @@ void gen_ARRAY(int nDimensions, int* dimensions){
 void gen_DECLARATION_STATEMENT (node_t *root, int scopedepth)
 {
 	tracePrint("Starting DECLARATION: adding space on stack\n");
-3	instruction_add(PUSH, r0, NULL, 0, 0);
+	instruction_add(PUSH, r0, NULL, 0, 0);
 
 	tracePrint("Ending DECLARATION\n");
 }
