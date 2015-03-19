@@ -292,7 +292,7 @@ void gen_ASSIGNMENT_STATEMENT ( node_t *root, int scopedepth )
 		offset = find_stackOffset(root);
 		int position;
 		if(root->children[0]->children[0]->nodetype.index != VARIABLE){
-			position = find_position(root->children[0], 1);
+			position = find_position(root, 1);
 		}else{
 			position = root->children[0]->children[1]->int_const;
 		}
