@@ -162,8 +162,7 @@ void gen_ARRAY(int nDimensions, int* dimensions){
 void gen_DECLARATION_STATEMENT (node_t *root, int scopedepth)
 {
 	tracePrint("Starting DECLARATION: adding space on stack\n");
-
-	instruction_add(PUSH, r0, NULL, 0, 0);
+3	instruction_add(PUSH, r0, NULL, 0, 0);
 
 	tracePrint("Ending DECLARATION\n");
 }
@@ -290,8 +289,8 @@ void gen_ASSIGNMENT_STATEMENT ( node_t *root, int scopedepth )
 		int index = 4*(root->children[0]->children[1]->int_const);
 		char* string[20];
 		sprintf(string, "%d", index);
-		instruction_add(MOVE32, r4, STRDUP(string), 0, 0);
-		instruction_add3(ADD, r3, r3, r4);
+		instruction_add(MOVE32, r2, STRDUP(string), 0, 0);
+		instruction_add3(ADD, r3, r3, r2);
 	}
 	
 	
