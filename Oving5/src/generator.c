@@ -300,7 +300,11 @@ void gen_ASSIGNMENT_STATEMENT ( node_t *root, int scopedepth )
 	if(root->children[1]->nodetype.index != EXPRESSION){
 		instruction_add(POP, r0, NULL, 0, 0);
 	}
-	instruction_add(STR, r5, fp, 0, offset);
+	if(root->children[0]->nodetype.index != VARIABLE){
+		instruction_add(STR, r0, r5, 0, 0);
+	}else{
+	    instruction_add(STR, r0, fp, 0, offset);
+	}
 	
 	tracePrint ( "End ASSIGNMENT_STATEMENT\n");
 }
