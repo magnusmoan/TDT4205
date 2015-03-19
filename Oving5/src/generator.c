@@ -207,6 +207,7 @@ void gen_EXPRESSION ( node_t *root, int scopedepth )
 				}
 				instruction_add(BL, "_malloc", NULL, 0, 0);
 				instruction_add(POP, r6, NULL, 0, 0);
+				instruction_add(POP, r0, NULL, 0, 0);
 			}
 			break;
 		case ARRAY_INDEX_E:
@@ -263,7 +264,6 @@ void gen_CONSTANT (node_t * root, int scopedepth)
 			break;
 	}
 	instruction_add(PUSH, r5, NULL, 0, 0);
-
 	tracePrint("End CONSTANT\n");
 }
 
@@ -272,23 +272,16 @@ void gen_ASSIGNMENT_STATEMENT ( node_t *root, int scopedepth )
 {
 	tracePrint ( "Starting ASSIGNMENT_STATEMENT\n");
 
+	int offset = root->children[0]->entry->stack_offset;
 
-	if(root->children[0]->n_children > 0){
-		int offset = root->children[0]->children[0]->entry->stack_offset;
-		instruction_add(LDR, r5, fp, 0, offset);
-		int index  = root->children[0]->children[1]->int_const;
-		char* string[20];
-		sprintf(string, "%d", index);
-		instruction_add(MOVE32, r6, STRDUP(string), 0, 0);
-		instruction_add3(ADD, r6, r6, r5);
-		instruction_add(POP, r5, NULL, 0, 0);
-		instruction_add(STR, r5, r6, 0, 0);
+	if(root->children[1]->nodetype.index == EXPRESSION){
+		instruction_add(STR, r0, fp, 0, offset);
 	}else{
-		gen_default(root->children[1], scopedepth);
-		int offset = root->children[0]->entry->stack_offset;
 		instruction_add(POP, r5, NULL, 0, 0);
 		instruction_add(STR, r5, fp, 0, offset);
 	}
+
+		
 	tracePrint ( "End ASSIGNMENT_STATEMENT\n");
 }
 
